@@ -1,9 +1,8 @@
 const baseUrl = 'https://itunes.apple.com/search?term=$';
-const results = 'album';
 
-export const getArtist = async search => {
+export const getArtist = async (search, type) => {
 	try {
-		const response = await fetch(`${baseUrl}${search}&entity=${results}`);
+		const response = await fetch(`${baseUrl}${search}&entity=${type}`);
 		const data = await response.json();
 		console.log(data);
 		return data;
