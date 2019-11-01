@@ -7,11 +7,11 @@ import Nav from '../Nav/Nav';
 class App extends Component {
 	render() {
 		return (
-			<>
+			<main className='App'>
 				<Nav />
 				<SearchForm />
 				<Container />
-			</>
+			</main>
 		);
 	}
 }

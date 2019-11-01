@@ -3,7 +3,7 @@ import './SearchForm.scss';
 import { getData } from '../../util/apiCalls';
 import { cleanerHandler } from '../../util/apiCleaners';
 import { connect } from 'react-redux';
-import { setResults } from '../../actions';
+import { setResults, toggleLoading } from '../../actions';
 import { bindActionCreators } from 'redux';
 
 class SearchForm extends Component {
@@ -33,11 +33,13 @@ class SearchForm extends Component {
 
 	handleClick = async () => {
 		const { term, type, label, artist } = this.state;
-		const { setResults } = this.props;
+		const { setResults, toggleLoading } = this.props;
 		const data = await getData(term, type);
-
+		setResults([]);
+		toggleLoading(true);
 		const cleanData = cleanerHandler(data, label, artist, term);
 		setResults(cleanData);
+		toggleLoading(false);
 		console.log(cleanerHandler(data, label, artist, term));
 		this.resetState();
 	};
@@ -101,7 +103,7 @@ class SearchForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ setResults }, dispatch);
+	return bindActionCreators({ setResults, toggleLoading }, dispatch);
 };
 
 export default connect(
