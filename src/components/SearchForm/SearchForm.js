@@ -31,9 +31,10 @@ class SearchForm extends Component {
 	};
 
 	handleClick = async () => {
-		const { term, type, label } = this.state;
+		const { term, type, label, artist } = this.state;
 		const data = await getData(term, type);
-		cleanerHandler(data, label);
+
+		cleanerHandler(data, label, artist, term);
 	};
 
 	render() {

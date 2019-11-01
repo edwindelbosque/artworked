@@ -1,13 +1,19 @@
-export const cleanerHandler = (data, label) => {
+export const cleanerHandler = (data, label, artist, term) => {
 	const mutableData = [...data.results];
 
 	if (label === 'Album') {
-		console.log(cleanAlbum(mutableData).slice(0, 5));
-		return cleanAlbum(mutableData).slice(0, 5);
+		const cleanAlbums = artist
+			? cleanAlbum(filterArtist(artist, mutableData))
+			: cleanAlbum(mutableData, term);
+		console.log(filterResults(cleanAlbums, term));
+		return filterResults(cleanAlbums, term);
 	}
 	if (label === 'Single') {
-		console.log(cleanSingle(mutableData).slice(0, 5));
-		return cleanSingle(mutableData).slice(0, 5);
+		const cleanSingles = artist
+			? cleanSingle(filterArtist(artist, mutableData))
+			: cleanSingle(mutableData);
+		console.log(filterResults(cleanSingles, term));
+		return filterResults(cleanSingles, term);
 	}
 	if (label === 'Artist') {
 		console.log(cleanArtist(mutableData));
@@ -43,6 +49,23 @@ export const cleanerHandler = (data, label) => {
 	}
 };
 
+const filterResults = (cleanData, term) => {
+	return cleanData.filter(result => {
+		const upperTerm = term.toUpperCase().replace(/ /g, '');
+		const upperName = result.name.toUpperCase().replace(/ /g, '');
+		console.log(upperName, upperTerm);
+		return upperName.includes(upperTerm);
+	});
+};
+
+const filterArtist = (artist, data) => {
+	return data.filter(result => {
+		const upperTerm = artist.toUpperCase().replace(/ /g, '');
+		const upperArtist = result.artistName.toUpperCase().replace(/ /g, '');
+		return upperArtist.includes(upperTerm);
+	});
+};
+
 const cleanArtwork = (artworkUrl, resolution) => {
 	const splitUrl = artworkUrl.split('');
 	splitUrl.splice(splitUrl.length - 13);
@@ -70,9 +93,10 @@ const cleanAlbum = mutableData => {
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			albumId: collectionId,
 			name: collectionName,
-			releaseYear: releaseDate.slice(0, 4),
+			releaseYear: parseInt(releaseDate.slice(0, 4)),
 			trackCount
 		};
+		console.log(cleanedAlbum);
 		return cleanedAlbum;
 	});
 };
@@ -96,9 +120,10 @@ const cleanSingle = mutableData => {
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			albumId: collectionId,
 			name: collectionName,
-			releaseYear: releaseDate.slice(0, 4),
+			releaseYear: parseInt(releaseDate.slice(0, 4)),
 			trackCount
 		};
+		console.log(cleanedSingle);
 		return cleanedSingle;
 	});
 };
@@ -121,7 +146,7 @@ const cleanArtist = mutableData => {
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			albumId: collectionId,
 			name: collectionName,
-			releaseYear: releaseDate.slice(0, 4),
+			releaseYear: parseInt(releaseDate.slice(0, 4)),
 			trackCount
 		};
 		return cleanedSingle;
@@ -136,7 +161,7 @@ const cleanMovie = mutableData => {
 			artwork: cleanArtwork(artworkUrl100, 600),
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			name: trackName,
-			releaseYear: releaseDate.slice(0, 4)
+			releaseYear: parseInt(releaseDate.slice(0, 4))
 		};
 		return cleanedData;
 	});
@@ -150,7 +175,7 @@ const cleanPodcast = mutableData => {
 			artwork: cleanArtwork(artworkUrl100, 600),
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			name: trackName,
-			releaseYear: releaseDate.slice(0, 4)
+			releaseYear: parseInt(releaseDate.slice(0, 4))
 		};
 		return cleanedData;
 	});
@@ -172,7 +197,7 @@ const cleanMusicVideo = mutableData => {
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			previewUrl,
 			name: trackName,
-			releaseYear: releaseDate.slice(0, 4)
+			releaseYear: parseInt(releaseDate.slice(0, 4))
 		};
 		return cleanedData;
 	});
@@ -186,7 +211,7 @@ const cleanTvShow = mutableData => {
 			artwork: cleanArtwork(artworkUrl100, 600),
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			name: collectionName,
-			releaseYear: releaseDate.slice(0, 4)
+			releaseYear: parseInt(releaseDate.slice(0, 4))
 		};
 		return cleanedData;
 	});
@@ -201,7 +226,7 @@ const cleanBook = mutableData => {
 			artwork: cleanArtwork(artworkUrl100, 600),
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			name: trackName,
-			releaseYear: releaseDate.slice(0, 4)
+			releaseYear: parseInt(releaseDate.slice(0, 4))
 		};
 		return cleanedData;
 	});
@@ -216,7 +241,7 @@ const cleanAudiobook = mutableData => {
 			artwork: cleanArtwork(artworkUrl100, 600),
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			name: collectionName,
-			releaseYear: releaseDate.slice(0, 4)
+			releaseYear: parseInt(releaseDate.slice(0, 4))
 		};
 		return cleanedData;
 	});
@@ -230,7 +255,7 @@ const cleanApp = mutableData => {
 			artwork: cleanArtwork(artworkUrl100, 600),
 			hqArtwork: cleanArtwork(artworkUrl100, 10000),
 			name: trackName,
-			releaseYear: releaseDate.slice(0, 4)
+			releaseYear: parseInt(releaseDate.slice(0, 4))
 		};
 		return cleanedData;
 	});
