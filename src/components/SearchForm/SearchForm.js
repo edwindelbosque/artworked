@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './SearchForm.scss';
 import { getData } from '../../util/apiCalls';
 import { cleanerHandler } from '../../util/apiCleaners';
+import { connect } from 'react-redux';
+import { setResults } from '../../actions';
+import { bindActionCreators } from 'redux';
 
 class SearchForm extends Component {
 	constructor() {
@@ -30,9 +33,11 @@ class SearchForm extends Component {
 
 	handleClick = async () => {
 		const { term, type, label, artist } = this.state;
+		const { setResults } = this.props;
 		const data = await getData(term, type);
 
-		cleanerHandler(data, label, artist, term);
+		const cleanData = cleanerHandler(data, label, artist, term);
+		setResults(cleanData);
 		console.log(cleanerHandler(data, label, artist, term));
 		this.resetState();
 	};
@@ -95,4 +100,11 @@ class SearchForm extends Component {
 	}
 }
 
-export default SearchForm;
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators({ setResults }, dispatch);
+};
+
+export default connect(
+	null,
+	mapDispatchToProps
+)(SearchForm);
