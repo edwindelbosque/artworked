@@ -60,9 +60,17 @@ const filterResults = (cleanData, term) => {
 
 const filterArtist = (artist, data) => {
 	return data.filter(result => {
-		const upperTerm = artist.toUpperCase().replace(/ /g, '');
-		const upperArtist = result.artistName.toUpperCase().replace(/ /g, '');
-		return upperArtist.includes(upperTerm);
+		const flattedTerm = artist
+			.toUpperCase()
+			.replace(/ /g, '')
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '');
+		const flattedArtistName = result.artistName
+			.toUpperCase()
+			.replace(/ /g, '')
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '');
+		return flattedArtistName.includes(flattedTerm);
 	});
 };
 
