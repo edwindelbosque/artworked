@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SearchForm.scss';
 import { getData } from '../../util/apiCalls';
+import { cleanerHandler } from '../../util/apiCleaners';
 
 class SearchForm extends Component {
 	constructor() {
@@ -30,9 +31,9 @@ class SearchForm extends Component {
 	};
 
 	handleClick = async () => {
-		const { term, type } = this.state;
+		const { term, type, label } = this.state;
 		const data = await getData(term, type);
-		console.log(data);
+		cleanerHandler(data, label);
 	};
 
 	render() {
@@ -54,7 +55,7 @@ class SearchForm extends Component {
 		return (
 			<nav className='SearchForm'>
 				<div>
-					<label>Looking for </label>
+					<label>Look for </label>
 					<select name='type' onChange={e => this.handleChange(e)}>
 						<option value='["album", "Album", "ex. Pop2"]'>Album</option>
 						<option value='["album", "Single", "ex. West Coast"]'>
@@ -67,15 +68,12 @@ class SearchForm extends Component {
 							TV Show
 						</option>
 						<option value='["movie", "Movie", "ex. Joker"]'>Movie</option>
-						<option value='["shortFilm", "Short Film", "ex. Bao"]'>
-							Short Film
-						</option>
 						<option value='["podcast", "Podcast", "ex. Reply All"]'>
 							Podcast
 						</option>
 						<option value='["ebook", "iBook", "ex. The Martian"]'>iBook</option>
 						<option value='["audiobook", "Audiobook", "ex. The Martian"]'>
-							Audio Book
+							Audiobook
 						</option>
 						<option value='["software", "App", "ex. Instagram"]'>App</option>
 						<option value='["musicVideo", "Music Video", "ex. Shades of Cool"]'>

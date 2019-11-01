@@ -2,7 +2,6 @@ import React from 'react';
 import './App.scss';
 import SearchForm from '../SearchForm/SearchForm';
 import Nav from '../Nav/Nav';
-import { getArtist } from '../../util/apiCalls';
 
 class App extends React.Component {
 	render() {
