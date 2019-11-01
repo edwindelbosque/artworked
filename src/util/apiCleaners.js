@@ -5,46 +5,37 @@ export const cleanerHandler = (data, label, artist, term) => {
 		const cleanAlbums = artist
 			? cleanAlbum(filterArtist(artist, mutableData))
 			: cleanAlbum(mutableData, term);
-		console.log(filterResults(cleanAlbums, term));
 		return filterResults(cleanAlbums, term);
 	}
 	if (label === 'Single') {
 		const cleanSingles = artist
 			? cleanSingle(filterArtist(artist, mutableData))
 			: cleanSingle(mutableData);
-		console.log(filterResults(cleanSingles, term));
 		return filterResults(cleanSingles, term);
 	}
 	if (label === 'Artist') {
-		console.log(cleanArtist(mutableData));
 		return cleanArtist(mutableData);
 	}
 	if (label === 'Movie') {
-		console.log(cleanMovie(mutableData));
-		return cleanMovie(mutableData);
+		const cleanMovies = cleanMovie(mutableData);
+		return filterResults(cleanMovies, term);
 	}
 	if (label === 'App') {
-		console.log(cleanApp(mutableData).slice(0, 1));
 		return cleanApp(mutableData.slice(0, 1));
 	}
 	if (label === 'Podcast') {
-		console.log(cleanPodcast(mutableData));
 		return cleanPodcast(mutableData);
 	}
 	if (label === 'Music Video') {
-		console.log(cleanMusicVideo(mutableData));
 		return cleanMusicVideo(mutableData);
 	}
 	if (label === 'TV Show') {
-		console.log(cleanTvShow(mutableData));
 		return cleanTvShow(mutableData);
 	}
 	if (label === 'iBook') {
-		console.log(cleanBook(mutableData));
 		return cleanBook(mutableData);
 	}
 	if (label === 'Audiobook') {
-		console.log(cleanAudiobook(mutableData));
 		return cleanAudiobook(mutableData);
 	}
 };
@@ -53,7 +44,6 @@ const filterResults = (cleanData, term) => {
 	return cleanData.filter(result => {
 		const upperTerm = term.toUpperCase().replace(/ /g, '');
 		const upperName = result.name.toUpperCase().replace(/ /g, '');
-		console.log(upperName, upperTerm);
 		return upperName.includes(upperTerm);
 	});
 };
@@ -94,7 +84,7 @@ const cleanAlbum = mutableData => {
 			releaseDate,
 			trackCount
 		} = result;
-		const cleanedAlbum = {
+		const cleanedData = {
 			artistId,
 			artist: artistName,
 			artwork: cleanArtwork(artworkUrl100, 600),
@@ -104,8 +94,7 @@ const cleanAlbum = mutableData => {
 			releaseYear: parseInt(releaseDate.slice(0, 4)),
 			trackCount
 		};
-		console.log(cleanedAlbum);
-		return cleanedAlbum;
+		return cleanedData;
 	});
 };
 
@@ -121,7 +110,7 @@ const cleanSingle = mutableData => {
 			releaseDate,
 			trackCount
 		} = result;
-		const cleanedSingle = {
+		const cleanedData = {
 			artistId,
 			artist: artistName,
 			artwork: cleanArtwork(artworkUrl100, 600),
@@ -131,8 +120,7 @@ const cleanSingle = mutableData => {
 			releaseYear: parseInt(releaseDate.slice(0, 4)),
 			trackCount
 		};
-		console.log(cleanedSingle);
-		return cleanedSingle;
+		return cleanedData;
 	});
 };
 
@@ -147,7 +135,7 @@ const cleanArtist = mutableData => {
 			releaseDate,
 			trackCount
 		} = result;
-		const cleanedSingle = {
+		const cleanedData = {
 			artistId,
 			artist: artistName,
 			artwork: cleanArtwork(artworkUrl100, 600),
@@ -157,7 +145,7 @@ const cleanArtist = mutableData => {
 			releaseYear: parseInt(releaseDate.slice(0, 4)),
 			trackCount
 		};
-		return cleanedSingle;
+		return cleanedData;
 	});
 };
 

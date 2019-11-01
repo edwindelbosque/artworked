@@ -1,9 +1,14 @@
 body {
 	margin: 0;
-	font-family: 'Aldrich', sans-serif;
-	// font-family: 'Montserrat', sans-serif;
+	// font-family: 'Aldrich', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	// font-family: 'Text Me One', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background: #000000;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
 }
 
 code {

@@ -10,8 +10,7 @@ class SearchForm extends Component {
 			type: 'album',
 			term: '',
 			artist: '',
-			label: 'Album',
-			placeholder: 'ex. Pop2'
+			label: 'Album'
 		};
 	}
 
@@ -24,8 +23,7 @@ class SearchForm extends Component {
 			const value = JSON.parse(e.target.value);
 			this.setState({
 				type: value[0],
-				label: value[1],
-				placeholder: value[2]
+				label: value[1]
 			});
 		}
 	};
@@ -35,18 +33,30 @@ class SearchForm extends Component {
 		const data = await getData(term, type);
 
 		cleanerHandler(data, label, artist, term);
+		console.log(cleanerHandler(data, label, artist, term));
+		this.resetState();
+	};
+
+	handleSubmit = e => {
+		e.preventDefault();
+	};
+
+	resetState = () => {
+		this.setState({
+			term: '',
+			artist: ''
+		});
 	};
 
 	render() {
-		const { term, artist, label, placeholder } = this.state;
+		const { term, artist, label } = this.state;
 
 		const artistInput = (
 			<div>
-				<label>Artist Name</label>
 				<input
 					type='text'
 					name='artist'
-					placeholder='(higher accuracy)'
+					placeholder='Enter Artist (optional)'
 					value={artist}
 					onChange={e => this.handleChange(e)}
 				/>
@@ -54,48 +64,33 @@ class SearchForm extends Component {
 		);
 
 		return (
-			<nav className='SearchForm'>
+			<form className='SearchForm' onSubmit={e => this.handleSubmit(e)}>
 				<div>
-					<label>Look for </label>
 					<select name='type' onChange={e => this.handleChange(e)}>
-						<option value='["album", "Album", "ex. Pop2"]'>Album</option>
-						<option value='["album", "Single", "ex. West Coast"]'>
-							Single EP
-						</option>
-						<option value='["album", "Artist", "ex. Joseph Salvat"]'>
-							Artist
-						</option>
-						<option value='["tvSeason", "TV Show", "ex. The Office"]'>
-							TV Show
-						</option>
-						<option value='["movie", "Movie", "ex. Joker"]'>Movie</option>
-						<option value='["podcast", "Podcast", "ex. Reply All"]'>
-							Podcast
-						</option>
-						<option value='["ebook", "iBook", "ex. The Martian"]'>iBook</option>
-						<option value='["audiobook", "Audiobook", "ex. The Martian"]'>
-							Audiobook
-						</option>
-						<option value='["software", "App", "ex. Instagram"]'>App</option>
-						<option value='["musicVideo", "Music Video", "ex. Shades of Cool"]'>
-							Music Video
-						</option>
+						<option value='["album", "Album"]'>Album</option>
+						<option value='["album", "Single"]'>Single</option>
+						<option value='["album", "Artist"]'>Artist</option>
+						<option value='["tvSeason", "TV Show"]'>TV Show</option>
+						<option value='["movie", "Movie"]'>Movie</option>
+						<option value='["podcast", "Podcast"]'>Podcast</option>
+						<option value='["ebook", "iBook"]'>iBook</option>
+						<option value='["audiobook", "Audiobook"]'>Audiobook</option>
+						<option value='["software", "App"]'>App</option>
+						<option value='["musicVideo", "Music Video"]'>Music Video</option>
 					</select>
 				</div>
 				<div>
-					<label>{label} Name</label>
 					<input
 						type='text'
 						name='term'
-						placeholder={placeholder}
+						placeholder={`Enter ${label}`}
 						value={term}
 						onChange={e => this.handleChange(e)}
 					/>
+					{(label === 'Single' || label === 'Album') && artistInput}
 				</div>
-				{label === 'Single' && artistInput}
-				{label === 'Album' && artistInput}
-				<button onClick={this.handleClick}>Find Artwork</button>
-			</nav>
+				<button onClick={this.handleClick}>FIND ARTWORK</button>
+			</form>
 		);
 	}
 }

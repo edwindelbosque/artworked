@@ -1,0 +1,45 @@
+.SearchForm {
+	width: 550px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	div {
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column;
+	}
+
+	input {
+		font-size: 14px;
+		font-weight: 600;
+		padding: 8px 10px;
+		height: 30px;
+		width: 232px;
+		background: #e7e7e7;
+		border: none;
+		margin-bottom: 10px;
+		border-radius: 2px;
+	}
+
+	button {
+		font-size: 14px;
+		font-weight: 600;
+		padding: 7px 20px;
+		// height: 30px;
+		// width: 140px;
+		background: #fe7a52;
+		border: none;
+		border-radius: 2px;
+	}
+
+	select {
+		font-size: 14px;
+		font-weight: 600;
+		padding: 8px 10px;
+		height: 30px;
+		width: 110px;
+		border: none;
+		border-radius: 2px;
+	}
+}
