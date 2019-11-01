@@ -3,22 +3,30 @@ export const cleanerHandler = (data, label, artist, term) => {
 
 	if (label === 'Album') {
 		const cleanAlbums = artist
-			? cleanAlbum(filterArtist(artist, mutableData))
+			? cleanAlbum(filterArtist(artist, mutableData)).sort(
+					(a, b) => b.releaseYear - a.releaseYear
+			  )
 			: cleanAlbum(mutableData, term);
 		return filterResults(cleanAlbums, term);
 	}
 	if (label === 'Single') {
 		const cleanSingles = artist
-			? cleanSingle(filterArtist(artist, mutableData))
+			? cleanSingle(filterArtist(artist, mutableData)).sort(
+					(a, b) => b.releaseYear - a.releaseYear
+			  )
 			: cleanSingle(mutableData);
 		return filterResults(cleanSingles, term);
 	}
 	if (label === 'Artist') {
-		return cleanArtist(mutableData);
+		return cleanArtist(mutableData).sort(
+			(a, b) => b.releaseYear - a.releaseYear
+		);
 	}
 	if (label === 'Movie') {
 		const cleanMovies = cleanMovie(mutableData);
-		return filterResults(cleanMovies, term);
+		return filterResults(cleanMovies, term).sort(
+			(a, b) => b.releaseYear - a.releaseYear
+		);
 	}
 	if (label === 'App') {
 		return cleanApp(mutableData.slice(0, 1));
@@ -30,7 +38,10 @@ export const cleanerHandler = (data, label, artist, term) => {
 		return cleanMusicVideo(mutableData);
 	}
 	if (label === 'TV Show') {
-		return cleanTvShow(mutableData);
+		const cleanShows = cleanTvShow(mutableData);
+		return filterResults(cleanShows, term).sort(
+			(a, b) => a.releaseYear - b.releaseYear
+		);
 	}
 	if (label === 'iBook') {
 		return cleanBook(mutableData);
@@ -42,8 +53,16 @@ export const cleanerHandler = (data, label, artist, term) => {
 
 const filterResults = (cleanData, term) => {
 	return cleanData.filter(result => {
-		const upperTerm = term.toUpperCase().replace(/ /g, '');
-		const upperName = result.name.toUpperCase().replace(/ /g, '');
+		const upperTerm = term
+			.toUpperCase()
+			.replace(/ /g, '')
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '');
+		const upperName = result.name
+			.toUpperCase()
+			.replace(/ /g, '')
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '');
 		return upperName.includes(upperTerm);
 	});
 };
