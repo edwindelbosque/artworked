@@ -32,9 +32,9 @@ class Artwork extends Component {
 					/>
 				</a>
 				<div>
-					<h3>{artist}</h3>
-					<h3>{name}</h3>
-					<h3>{releaseYear}</h3>
+					<h3 className='title'>{name}</h3>
+					<h3 className='artist'>{artist}</h3>
+					<h3 className='year'>{releaseYear}</h3>
 				</div>
 			</article>
 		);

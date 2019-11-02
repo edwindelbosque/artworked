@@ -1,23 +1,21 @@
 form {
-	position: fixed;
-	background: black;
-	top: 51px;
+	background: rgb(124, 124, 124);
+	margin-top: 120px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.199);
 }
 
 .SearchForm {
-	width: 560px;
-	padding: 15px 20px 5px 20px;
+	width: 800px;
+	padding: 15px 20px 15px 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	border: 2px solid rgb(157, 188, 255);
-	border-top: none;
-	border-radius: 0 0 2px 2px;
+	border-radius: 4px;
 
-	div {
+	.inputsSection {
 		display: flex;
 		align-items: flex-end;
-		flex-direction: column;
+		align-items: center;
 	}
 
 	input {
@@ -27,23 +25,25 @@ form {
 		height: 30px;
 		width: 190px;
 		border: none;
-		margin-bottom: 10px;
 		border-radius: 2px;
+		margin-left: 20px;
+		transition: 0.3s;
 	}
 
 	button {
 		font-size: 14px;
 		font-weight: 600;
-		padding: 7px 20px;
+		padding: 4.5px 20px;
 		color: white;
-		background: #fe5752;
-		border: none;
+		background: #0202023d;
+		border: 2px solid rgb(150, 183, 255);
 		border-radius: 2px;
 		transition: 0.2s;
+		box-shadow: 0 2px 3px rgba(0, 0, 0, 0.281);
 
 		&:hover {
-			background: #ff6536;
-			transition: 0.2s;
+			background: #0000005d;
+			transition: 0.15s;
 		}
 
 		&:focus {
@@ -51,19 +51,18 @@ form {
 		}
 
 		&:active {
-			background: #be4a27;
+			background: #00000088;
+			transition: 0.15s;
 		}
 	}
 
 	select {
 		font-size: 14px;
 		font-weight: 600;
-		padding: 8px 10px;
 		height: 30px;
 		background: rgb(255, 255, 255);
-		width: 143px;
+		width: 120px;
 		color: rgb(34, 34, 34);
 		border: none;
-		border-radius: 2px;
 	}
 }

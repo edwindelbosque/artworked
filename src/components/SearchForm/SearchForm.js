@@ -63,7 +63,7 @@ class SearchForm extends Component {
 				<input
 					type='text'
 					name='artist'
-					placeholder='Enter Artist (optional)'
+					placeholder='Enter Artist (Optional)'
 					value={artist}
 					onChange={e => this.handleChange(e)}
 				/>
@@ -72,7 +72,7 @@ class SearchForm extends Component {
 
 		return (
 			<form className='SearchForm' onSubmit={e => this.handleSubmit(e)}>
-				<div>
+				<div className='inputsSection'>
 					<select name='type' onChange={e => this.handleChange(e)}>
 						<option value='["album", "Album"]'>Album</option>
 						<option value='["album", "Single"]'>Single</option>
@@ -85,8 +85,6 @@ class SearchForm extends Component {
 						<option value='["software", "App"]'>App</option>
 						<option value='["musicVideo", "Music Video"]'>Music Video</option>
 					</select>
-				</div>
-				<div>
 					<input
 						type='text'
 						name='term'

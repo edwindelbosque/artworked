@@ -4,12 +4,44 @@
 	margin-top: 40px;
 
 	img {
-		width: 578px;
-		border-radius: 2px;
+		height: 578px;
+		border-radius: 4px;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.356);
 	}
 
 	div {
 		margin-left: 30px;
 		width: 300px;
+		display: flex;
+		flex-direction: column;
+
+		h3 {
+			background: rgb(192, 192, 192);
+			color: rgb(43, 43, 43);
+			padding: 5px 10px;
+		}
+	}
+	.title {
+		font-family: Montserrat;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		background: rgb(228, 228, 228);
+		border-radius: 4px 4px 0 0;
+		border-bottom: none;
+	}
+
+	.artist {
+		background: rgb(214, 214, 214);
+		padding-bottom: 6px;
+		padding-top: 6px;
+	}
+
+	.year {
+		border-radius: 0 0 4px 4px;
+		font-size: 14px;
+		background: rgb(192, 192, 192);
+		border-top: none;
+		padding-bottom: 6px;
+		padding-top: 6px;
 	}
 }

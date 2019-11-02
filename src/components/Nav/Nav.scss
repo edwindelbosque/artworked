@@ -3,14 +3,16 @@
 	justify-content: center;
 	width: 100%;
 	position: fixed;
-	background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.384));
-	backdrop-filter: blur(10px);
+	background: black;
+	border-bottom: 1px solid rgb(163, 180, 255);
 	top: 0;
 
 	h2 {
-		font-size: 35px;
+		font-size: 36px;
+		letter-spacing: 4px;
+		font-family: 'Text Me One', sans-serif;
 		color: #ffffff;
-		padding: 3px 0;
+		padding: 4px 0;
 		width: 100%;
 		text-align: center;
 	}
