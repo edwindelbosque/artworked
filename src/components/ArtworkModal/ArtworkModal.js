@@ -13,13 +13,19 @@ const Artwork = ({ result }) => {
 			</Link>
 			<Nav />
 			<article className='ArtworkModal modalContainer'>
-				<a href={hqArtwork} target='_blank' rel='noopener noreferrer'>
-					<img alt={`${name} album artwork`} src={hqArtwork} />
-				</a>
+				<img alt={`${name} album artwork`} src={hqArtwork} />
 				<div>
 					<h3 className='title'>{name}</h3>
 					<h3 className='artist'>{artist}</h3>
 					<h3 className='year'>{releaseYear}</h3>
+					<a
+						href={hqArtwork}
+						target='_blank'
+						rel='noopener noreferrer'
+						download>
+						<button className='artwork-button'>Get Artwork</button>
+					</a>
+					<div class='heart'></div>
 				</div>
 			</article>
 		</>

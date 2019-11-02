@@ -13,6 +13,7 @@
 	min-width: 20rem;
 	max-width: 60rem;
 	height: 578px;
+	border: 1px solid gray;
 }
 
 .modal-backdrop {
@@ -32,9 +33,9 @@
 
 .ArtworkModal {
 	img {
-		height: 578px;
+		height: 576px;
 		border-radius: 4px 0 0 4px;
-		box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.253);
+		box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.384);
 	}
 
 	div {
@@ -43,6 +44,25 @@
 		width: 350px;
 		display: flex;
 		flex-direction: column;
+
+		.heart {
+			width: 100px;
+			position: absolute;
+			right: -1px;
+			top: 123px;
+			height: 100px;
+			background: url('https://cssanimation.rocks/images/posts/steps/heart.png')
+				no-repeat;
+			background-position: 0 0;
+			cursor: pointer;
+			transition: background-position 1s steps(28);
+			transition-duration: 0s;
+
+			&.is-active {
+				transition-duration: 1s;
+				background-position: -2800px 0;
+			}
+		}
 
 		h3 {
 			background: rgb(192, 192, 192);
@@ -78,4 +98,33 @@
 		padding-top: 6px;
 		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
 	}
+}
+
+.artwork-button {
+	border: 1px solid rgb(0, 255, 251);
+	color: rgb(233, 254, 255);
+	border-radius: 2px;
+	font-weight: 400;
+	width: 70%;
+	font-size: 20px;
+	cursor: pointer;
+	padding: 10px 32px;
+	background: rgba(0, 0, 0, 0.098);
+	margin-top: 20px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.242);
+	transition: 0.05s;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		box-shadow: 0 3px 4px rgba(0, 0, 0, 0.26);
+		background: rgba(186, 186, 186, 0.064);
+		transition: 0.05s;
+	}
+}
+
+a {
+	width: 100%;
 }
