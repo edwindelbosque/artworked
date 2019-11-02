@@ -11,22 +11,16 @@ export const cleanerHandler = (data, label, artist, term) => {
 	}
 	if (label === 'Single') {
 		const cleanSingles = artist
-			? cleanSingle(filterArtist(artist, mutableData)).sort(
-					(a, b) => b.releaseYear - a.releaseYear
-			  )
+			? cleanSingle(filterArtist(artist, mutableData))
 			: cleanSingle(mutableData);
 		return filterResults(cleanSingles, term);
 	}
 	if (label === 'Artist') {
-		return cleanArtist(mutableData).sort(
-			(a, b) => b.releaseYear - a.releaseYear
-		);
+		return cleanArtist(mutableData);
 	}
 	if (label === 'Movie') {
 		const cleanMovies = cleanMovie(mutableData);
-		return filterResults(cleanMovies, term).sort(
-			(a, b) => b.releaseYear - a.releaseYear
-		);
+		return filterResults(cleanMovies, term);
 	}
 	if (label === 'App') {
 		return cleanApp(mutableData.slice(0, 1));

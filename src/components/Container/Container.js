@@ -15,6 +15,7 @@ const Container = ({ results, isLoading }) => {
 				releaseYear={releaseYear}
 				artwork={artwork}
 				hqArtwork={hqArtwork}
+				isLoaded={false}
 			/>
 		);
 	});
@@ -32,7 +33,7 @@ const Container = ({ results, isLoading }) => {
 	return (
 		<>
 			{isLoading && loader}
-			<article>{card}</article>
+			<article className='Container'>{card}</article>
 		</>
 	);
 };

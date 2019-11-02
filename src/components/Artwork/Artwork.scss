@@ -1,7 +1,15 @@
 .Artwork {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 40px;
+
 	img {
 		width: 578px;
-		margin-top: 40px;
 		border-radius: 2px;
+	}
+
+	div {
+		margin-left: 30px;
+		width: 300px;
 	}
 }

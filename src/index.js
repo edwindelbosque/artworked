@@ -8,8 +8,16 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
+import { loadState, saveState } from './localStorage';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const persistedState = loadState();
+const store = createStore(rootReducer, persistedState, composeWithDevTools());
+
+store.subscribe(() => {
+	saveState({
+		results: store.getState().results
+	});
+});
 
 ReactDOM.render(
 	<Provider store={store}>
