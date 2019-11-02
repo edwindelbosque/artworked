@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './ArtworkResult.scss';
+import './Artwork.scss';
 import loadingGif from '../../assets/loadingGif.gif';
-import { Link } from 'react-router-dom';
 
 class Artwork extends Component {
 	constructor() {
@@ -19,19 +18,24 @@ class Artwork extends Component {
 
 	render() {
 		const { isLoaded } = this.state;
-		const { name, hqArtwork, id } = this.props;
+		const { name, artist, releaseYear, hqArtwork } = this.props;
 		const show = isLoaded ? { display: 'block' } : { display: 'none' };
 		return (
-			<article className='ArtworkResult'>
-				{!this.state.isLoaded && <img alt='loading gif' src={loadingGif} />}
-				<Link to={`/search/${id}`}>
+			<article className='Artwork'>
+				<a href={hqArtwork} target='_blank' rel='noopener noreferrer'>
+					{!this.state.isLoaded && <img alt='loading gif' src={loadingGif} />}
 					<img
 						alt={`${name} album artwork`}
 						src={hqArtwork}
 						style={show}
 						onLoad={this.loadHandler}
 					/>
-				</Link>
+				</a>
+				<div>
+					z<h3 className='title'>{name}</h3>
+					<h3 className='artist'>{artist}</h3>
+					<h3 className='year'>{releaseYear}</h3>
+				</div>
 			</article>
 		);
 	}

@@ -6,10 +6,11 @@ import { connect } from 'react-redux';
 
 const Container = ({ results, isLoading }) => {
 	const card = results.map((result, index) => {
-		const { name, artist, releaseYear, artwork, hqArtwork } = result;
+		const { name, artist, releaseYear, artwork, hqArtwork, id } = result;
 		return (
 			<ArtworkResult
 				key={index}
+				id={id}
 				name={name}
 				artist={artist}
 				releaseYear={releaseYear}
