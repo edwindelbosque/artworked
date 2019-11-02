@@ -1,6 +1,6 @@
 import React from 'react';
 import './Container.scss';
-import Artwork from '../Artwork/Artwork';
+import ArtworkResult from '../ArtworkResult/ArtworkResult';
 import loadingGif from '../../assets/loadingGif.gif';
 import { connect } from 'react-redux';
 
@@ -8,7 +8,7 @@ const Container = ({ results, isLoading }) => {
 	const card = results.map((result, index) => {
 		const { name, artist, releaseYear, artwork, hqArtwork } = result;
 		return (
-			<Artwork
+			<ArtworkResult
 				key={index}
 				name={name}
 				artist={artist}

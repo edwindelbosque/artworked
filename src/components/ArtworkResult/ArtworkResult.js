@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Artwork.scss';
+import './ArtworkResult.scss';
 import loadingGif from '../../assets/loadingGif.gif';
 
 class Artwork extends Component {
@@ -18,24 +18,19 @@ class Artwork extends Component {
 
 	render() {
 		const { isLoaded } = this.state;
-		const { name, artist, releaseYear, artwork, hqArtwork } = this.props;
+		const { name, hqArtwork } = this.props;
 		const show = isLoaded ? { display: 'block' } : { display: 'none' };
 		return (
 			<article className='Artwork'>
-				<a href={hqArtwork} download='test'>
+				<a href={hqArtwork} target='_blank' rel='noopener noreferrer'>
 					{!this.state.isLoaded && <img alt='loading gif' src={loadingGif} />}
 					<img
 						alt={`${name} album artwork`}
-						src={artwork}
+						src={hqArtwork}
 						style={show}
 						onLoad={this.loadHandler}
 					/>
 				</a>
-				<div>
-					<h3 className='title'>{name}</h3>
-					<h3 className='artist'>{artist}</h3>
-					<h3 className='year'>{releaseYear}</h3>
-				</div>
 			</article>
 		);
 	}

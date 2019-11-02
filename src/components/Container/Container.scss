@@ -1,4 +1,12 @@
 .Container {
 	margin-top: 50px;
 	padding-bottom: 120px;
+	display: grid;
+	grid-gap: 20px 20px;
+	grid-template-columns: repeat(auto-fit, 300px);
+	justify-content: center;
+	grid-template-rows: auto;
+	justify-items: center;
+	padding: 40px 100px;
+	width: 100%;
 }

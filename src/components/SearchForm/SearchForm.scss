@@ -1,6 +1,6 @@
 form {
 	background: rgb(124, 124, 124);
-	margin-top: 120px;
+	margin-top: 80px;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.199);
 }
 
@@ -16,6 +16,8 @@ form {
 		display: flex;
 		align-items: flex-end;
 		align-items: center;
+		border-right: 3px solid rgb(77, 77, 77);
+		width: 578px;
 	}
 
 	input {
@@ -28,6 +30,7 @@ form {
 		border-radius: 2px;
 		margin-left: 20px;
 		transition: 0.3s;
+		box-shadow: 0 2px 3px rgba(0, 0, 0, 0.281);
 	}
 
 	button {
@@ -63,6 +66,7 @@ form {
 		background: rgb(255, 255, 255);
 		width: 120px;
 		color: rgb(34, 34, 34);
+		box-shadow: 0 2px 3px rgba(0, 0, 0, 0.281);
 		border: none;
 	}
 }
