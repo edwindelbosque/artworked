@@ -1,17 +1,46 @@
-.ArtworkModal {
+.modalContainer {
+	position: fixed;
+	z-index: 100;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
 	display: flex;
 	justify-content: space-between;
-	margin-top: 100px;
+	margin: auto;
+	background: rgb(75, 75, 75);
+	margin-top: 20px;
+	border-radius: 4px;
+	min-width: 20rem;
+	max-width: 60rem;
+	height: 578px;
+}
 
+.modal-backdrop {
+	width: 100vw;
+	height: 110vh;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background: rgba(0, 0, 0, 0.63);
+	background-position: center top;
+	background-size: cover;
+	backdrop-filter: blur(8px);
+	transform: translate3d(-50%, -50%, 0);
+	object-fit: cover;
+	z-index: 1;
+}
+
+.ArtworkModal {
 	img {
-		width: 578px;
-		border-radius: 4px;
-		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.356);
+		height: 578px;
+		border-radius: 4px 0 0 4px;
+		box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.253);
 	}
 
 	div {
-		margin-left: 30px;
-		width: 300px;
+		margin-left: 20px;
+		margin-right: 20px;
+		width: 350px;
 		display: flex;
 		flex-direction: column;
 
@@ -22,6 +51,7 @@
 		}
 	}
 	.title {
+		margin-top: 20px;
 		font-family: Montserrat;
 		padding-top: 12px;
 		font-weight: 600;
@@ -46,5 +76,6 @@
 		font-weight: 500;
 		padding-bottom: 6px;
 		padding-top: 6px;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.226);
 	}
 }

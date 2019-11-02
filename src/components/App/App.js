@@ -13,8 +13,8 @@ class App extends Component {
 		return (
 			<main className='App'>
 				<Nav />
-				<Route exact path='/' render={() => <SearchForm />} />
-				<Route exact path='/' render={() => <Container />} />
+				<Route path='(|search/:id)' render={() => <SearchForm />} />
+				<Route path='(|search/:id)' render={() => <Container />} />
 				<Route
 					path='/search/:id'
 					render={({ match }) => {
