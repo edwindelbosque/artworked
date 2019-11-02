@@ -83,7 +83,6 @@ class SearchForm extends Component {
 						<option value='["ebook", "iBook"]'>iBook</option>
 						<option value='["audiobook", "Audiobook"]'>Audiobook</option>
 						<option value='["software", "App"]'>App</option>
-						<option value='["musicVideo", "Music Video"]'>Music Video</option>
 					</select>
 					<input
 						type='text'

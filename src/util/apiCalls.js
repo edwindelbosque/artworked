@@ -5,6 +5,7 @@ export const getData = async (search, type) => {
 	try {
 		const response = await fetch(`${baseSearchUrl}${search}&entity=${type}`);
 		const data = await response.json();
+		console.log(data);
 		return data;
 	} catch (error) {
 		console.log(error.message);
