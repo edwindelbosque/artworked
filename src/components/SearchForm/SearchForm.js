@@ -10,10 +10,10 @@ export class SearchForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-			type: 'album',
+			type: 'artist',
 			term: '',
 			artist: '',
-			label: 'Album'
+			label: 'Artist'
 		};
 	}
 
@@ -40,7 +40,6 @@ export class SearchForm extends Component {
 		const cleanData = cleanerHandler(data, label, artist, term);
 		setResults(cleanData);
 		toggleLoading(false);
-		console.log(cleanerHandler(data, label, artist, term));
 		this.resetState();
 	};
 
@@ -74,9 +73,9 @@ export class SearchForm extends Component {
 			<form className='SearchForm' onSubmit={e => this.handleSubmit(e)}>
 				<div className='inputsSection'>
 					<select name='type' onChange={e => this.handleChange(e)}>
+						<option value='["album", "Artist"]'>Artist</option>
 						<option value='["album", "Album"]'>Album</option>
 						<option value='["album", "Single"]'>Single</option>
-						<option value='["album", "Artist"]'>Artist</option>
 						<option value='["tvSeason", "TV Show"]'>TV Show</option>
 						<option value='["movie", "Movie"]'>Movie</option>
 						<option value='["podcast", "Podcast"]'>Podcast</option>

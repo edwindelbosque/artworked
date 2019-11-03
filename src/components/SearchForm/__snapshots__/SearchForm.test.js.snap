@@ -13,6 +13,11 @@ exports[`SearchForm should match SearchForm snapshot 1`] = `
       onChange={[Function]}
     >
       <option
+        value="[\\"album\\", \\"Artist\\"]"
+      >
+        Artist
+      </option>
+      <option
         value="[\\"album\\", \\"Album\\"]"
       >
         Album
@@ -21,11 +26,6 @@ exports[`SearchForm should match SearchForm snapshot 1`] = `
         value="[\\"album\\", \\"Single\\"]"
       >
         Single
-      </option>
-      <option
-        value="[\\"album\\", \\"Artist\\"]"
-      >
-        Artist
       </option>
       <option
         value="[\\"tvSeason\\", \\"TV Show\\"]"
@@ -61,19 +61,10 @@ exports[`SearchForm should match SearchForm snapshot 1`] = `
     <input
       name="term"
       onChange={[Function]}
-      placeholder="Enter Album"
+      placeholder="Enter Artist"
       type="text"
       value=""
     />
-    <div>
-      <input
-        name="artist"
-        onChange={[Function]}
-        placeholder="Enter Artist (Optional)"
-        type="text"
-        value=""
-      />
-    </div>
   </div>
   <button
     onClick={[Function]}
