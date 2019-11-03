@@ -7,7 +7,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin: auto;
-	background: rgb(75, 75, 75);
+	background: rgb(46, 46, 46);
 	margin-top: 20px;
 	border-radius: 4px;
 	min-width: 20rem;
@@ -48,8 +48,8 @@
 		.heart {
 			width: 100px;
 			position: absolute;
-			right: -1px;
-			top: 123px;
+			right: -30px;
+			top: 490px;
 			height: 100px;
 			background: url('https://cssanimation.rocks/images/posts/steps/heart.png')
 				no-repeat;
@@ -105,7 +105,7 @@
 	color: rgb(233, 254, 255);
 	border-radius: 2px;
 	font-weight: 400;
-	width: 70%;
+	width: 100%;
 	font-size: 20px;
 	cursor: pointer;
 	padding: 10px 32px;

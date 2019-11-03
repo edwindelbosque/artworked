@@ -2,9 +2,22 @@ import React from 'react';
 import './ArtworkModal.scss';
 import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addFavorite, removeFavorite } from '../../actions/index';
 
-const Artwork = ({ result }) => {
-	const { name, artist, releaseYear, hqArtwork } = result;
+const Artwork = ({ result, favorites, addFavorite, removeFavorite }) => {
+	const { name, artist, releaseYear, hqArtwork, id } = result;
+
+	const handleFavorite = () => {
+		favorites.find(favorite => favorite.id === id)
+			? removeFavorite(id)
+			: addFavorite(result);
+	};
+
+	const heartToggle = favorites.find(favorite => favorite.id === id)
+		? 'is-active'
+		: '';
 
 	return (
 		<>
@@ -25,11 +38,30 @@ const Artwork = ({ result }) => {
 						download>
 						<button className='artwork-button'>Get Artwork</button>
 					</a>
-					<div class='heart'></div>
+					<div
+						className={`heart ${heartToggle}`}
+						onClick={handleFavorite}></div>
 				</div>
 			</article>
 		</>
 	);
 };
 
-export default Artwork;
+const mapStateToProps = ({ favorites }) => ({
+	favorites
+});
+
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators(
+		{
+			addFavorite,
+			removeFavorite
+		},
+		dispatch
+	);
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Artwork);

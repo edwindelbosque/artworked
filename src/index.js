@@ -15,7 +15,8 @@ const store = createStore(rootReducer, persistedState, composeWithDevTools());
 
 store.subscribe(() => {
 	saveState({
-		results: store.getState().results
+		results: store.getState().results,
+		favorites: store.getState().favorites
 	});
 });
 
