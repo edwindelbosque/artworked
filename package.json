@@ -3,6 +3,7 @@
 	"homepage": "https://edwindelbosque.github.io/artworked/",
 	"version": "0.1.0",
 	"private": true,
+	"proxy": "http://localhost:3001",
 	"dependencies": {
 		"node-sass": "^4.13.0",
 		"prop-types": "^15.7.2",
