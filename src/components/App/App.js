@@ -9,7 +9,7 @@ import Nav from '../Nav/Nav';
 
 class App extends Component {
 	render() {
-		const { results } = this.props;
+		const { results, favorites } = this.props;
 		return (
 			<main className='App'>
 				<Nav />
@@ -20,7 +20,8 @@ class App extends Component {
 					render={({ match }) => {
 						console.log(match);
 						const id = parseInt(match.params.id);
-						const result = results.find(result => result.id === id);
+						const data = [...results, ...favorites];
+						const result = data.find(result => result.id === id);
 						return <ArtworkModal result={result} match={match.params} />;
 					}}
 				/>
@@ -29,8 +30,9 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = ({ results }) => ({
-	results
+const mapStateToProps = ({ results, favorites }) => ({
+	results,
+	favorites
 });
 
 export default connect(mapStateToProps)(App);

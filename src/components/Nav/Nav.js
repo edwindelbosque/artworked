@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { Link, Route } from 'react-router-dom';
 
 const Nav = ({ isFavorites, toggleFavorites }) => {
-	const handleClick = () => {
+	const handleClick = e => {
 		toggleFavorites();
 	};
 
@@ -19,7 +19,7 @@ const Nav = ({ isFavorites, toggleFavorites }) => {
 					<h3>My List</h3>
 					<div className={`slider-track ${toggleStyling}`}>
 						<Link to={isFavorites ? '/' : 'favorites'}>
-							<div className='slider' onClick={() => handleClick()}></div>
+							<div className='slider' onClick={handleClick}></div>
 						</Link>
 					</div>
 				</div>
