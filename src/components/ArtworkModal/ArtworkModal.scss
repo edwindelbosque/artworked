@@ -109,10 +109,9 @@
 	font-size: 20px;
 	cursor: pointer;
 	padding: 10px 32px;
-	background: rgba(0, 0, 0, 0.098);
+	background: rgba(0, 0, 0, 0);
 	margin-top: 20px;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.242);
-	transition: 0.05s;
 
 	&:focus {
 		outline: none;
@@ -120,8 +119,7 @@
 
 	&:hover {
 		box-shadow: 0 3px 4px rgba(0, 0, 0, 0.26);
-		background: rgba(186, 186, 186, 0.064);
-		transition: 0.05s;
+		background: rgba(186, 186, 186, 0.096);
 	}
 }
 

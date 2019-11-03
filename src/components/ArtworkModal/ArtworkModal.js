@@ -5,11 +5,17 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addFavorite, removeFavorite } from '../../actions/index';
+import { getAlbumTracks } from '../../util/apiCalls';
 
 const Artwork = ({ result, favorites, addFavorite, removeFavorite }) => {
 	const { name, artist, releaseYear, hqArtwork, id } = result;
 
+	const getSongs = async () => {
+		await getAlbumTracks(id);
+	};
+
 	const handleFavorite = () => {
+		getSongs();
 		favorites.find(favorite => favorite.id === id)
 			? removeFavorite(id)
 			: addFavorite(result);

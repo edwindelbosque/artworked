@@ -17,3 +17,7 @@ export const removeFavorite = id => ({
 	type: 'REMOVE_FAVORITE',
 	id
 });
+
+export const toggleFavorites = () => ({
+	type: 'TOGGLE_FAVORITES'
+});

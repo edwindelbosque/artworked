@@ -15,7 +15,62 @@
 		font-family: 'Text Me One', sans-serif;
 		color: #ffffff;
 		padding: 4px 0;
-		width: 100%;
 		text-align: center;
+	}
+}
+
+.container {
+	width: 140px;
+	position: absolute;
+	left: 5%;
+	margin-top: 13px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	h3 {
+		font-size: 20px;
+		font-weight: 500;
+	}
+
+	h2 {
+		display: block;
+		text-align: center;
+	}
+
+	.slider-track {
+		border: solid 2px #ccc;
+		border-left: solid 3px #ccc;
+		display: block;
+		height: 25px;
+		width: 40px;
+		border-radius: 150px;
+		position: relative;
+		box-sizing: border-box;
+		margin: 0 auto;
+	}
+	.slider {
+		width: 21px;
+		height: 21px;
+		background: #fff;
+		position: absolute;
+		top: 0px;
+		left: -1px;
+		border-radius: 50%;
+		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.623);
+		box-sizing: border-box;
+		-webkit-transition: all 0.2s;
+		transition: all 0.2s;
+	}
+	.active {
+		border: solid 1px #00e667;
+		background: #00e667;
+
+		.slider {
+			left: 16px;
+			-webkit-transition: all 0.2s;
+			transition: all 0.2s;
+			top: 1px;
+		}
 	}
 }

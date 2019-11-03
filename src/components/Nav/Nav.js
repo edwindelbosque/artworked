@@ -1,12 +1,39 @@
 import React from 'react';
 import './Nav.scss';
+import { connect } from 'react-redux';
+import { toggleFavorites } from '../../actions/index';
+import { bindActionCreators } from 'redux';
 
-const Nav = () => {
+const Nav = ({ isFavorites, toggleFavorites }) => {
+	const handleClick = () => {
+		toggleFavorites();
+	};
+
+	const toggleStyling = isFavorites ? 'active' : '';
+
 	return (
 		<nav className='Nav'>
+			<div className='container'>
+				<h3>My List</h3>
+				<div className={`slider-track ${toggleStyling}`}>
+					<div className='slider' onClick={() => handleClick()}></div>
+				</div>
+			</div>
 			<h2>Artworked</h2>
+			<div></div>
 		</nav>
 	);
 };
 
-export default Nav;
+const mapStateToProps = ({ isFavorites }) => ({
+	isFavorites
+});
+
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators({ toggleFavorites }, dispatch);
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Nav);
