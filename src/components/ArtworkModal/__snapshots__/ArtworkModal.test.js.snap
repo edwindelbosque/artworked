@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtworkModal should match ArtworkModal snapshot 1`] = `
+<Fragment>
+  <Link
+    to="/"
+  >
+    <div
+      className="modal-backdrop"
+    />
+  </Link>
+  <Connect(Nav) />
+  <article
+    className="ArtworkModal modalContainer"
+  >
+    <img
+      alt="undefined album artwork"
+    />
+    <div>
+      <h3
+        className="title"
+      />
+      <h3
+        className="artist"
+      />
+      <h3
+        className="year"
+      />
+      <a
+        download={true}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <button
+          className="artwork-button"
+        >
+          Get Artwork
+        </button>
+      </a>
+      <div
+        className="heart is-active"
+        onClick={[Function]}
+      />
+    </div>
+  </article>
+</Fragment>
+`;

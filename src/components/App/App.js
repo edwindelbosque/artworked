@@ -7,7 +7,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
 
-class App extends Component {
+export class App extends Component {
 	render() {
 		const { results, favorites } = this.props;
 		return (
@@ -31,7 +31,7 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = ({ results, favorites }) => ({
+export const mapStateToProps = ({ results, favorites }) => ({
 	results,
 	favorites
 });

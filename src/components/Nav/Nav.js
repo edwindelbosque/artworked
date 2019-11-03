@@ -5,7 +5,7 @@ import { toggleFavorites } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { Link, Route } from 'react-router-dom';
 
-const Nav = ({ isFavorites, toggleFavorites }) => {
+export const Nav = ({ isFavorites, toggleFavorites }) => {
 	const handleClick = e => {
 		toggleFavorites();
 	};
@@ -30,11 +30,11 @@ const Nav = ({ isFavorites, toggleFavorites }) => {
 	);
 };
 
-const mapStateToProps = ({ isFavorites }) => ({
+export const mapStateToProps = ({ isFavorites }) => ({
 	isFavorites
 });
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
 	return bindActionCreators({ toggleFavorites }, dispatch);
 };
 

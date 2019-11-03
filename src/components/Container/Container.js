@@ -4,7 +4,7 @@ import ArtworkResult from '../ArtworkResult/ArtworkResult';
 import loadingGif from '../../assets/loadingGif.gif';
 import { connect } from 'react-redux';
 
-const Container = ({ results, isLoading, isFavorites, favorites }) => {
+export const Container = ({ results, isLoading, isFavorites, favorites }) => {
 	const mapCards = type => {
 		return type.map((result, index) => {
 			const { name, artist, releaseYear, hqArtwork, id } = result;
@@ -42,7 +42,12 @@ const Container = ({ results, isLoading, isFavorites, favorites }) => {
 	);
 };
 
-const mapStateToProps = ({ results, isLoading, isFavorites, favorites }) => ({
+export const mapStateToProps = ({
+	results,
+	isLoading,
+	isFavorites,
+	favorites
+}) => ({
 	results,
 	isLoading,
 	isFavorites,

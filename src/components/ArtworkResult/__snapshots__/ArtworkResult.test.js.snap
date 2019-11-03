@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtworkResult should match App snapshot 1`] = `
+<article
+  className="ArtworkResult"
+>
+  <img
+    alt="loading gif"
+    src="loadingGif.gif"
+  />
+  <Link
+    to="/search/undefined"
+  >
+    <img
+      alt="undefined album artwork"
+      onLoad={[Function]}
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    />
+  </Link>
+</article>
+`;

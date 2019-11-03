@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addFavorite, removeFavorite } from '../../actions/index';
 
-class Artwork extends Component {
+export class ArtworkModal extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -74,12 +74,12 @@ class Artwork extends Component {
 	}
 }
 
-const mapStateToProps = ({ favorites, isFavorites }) => ({
+export const mapStateToProps = ({ favorites, isFavorites }) => ({
 	favorites,
 	isFavorites
 });
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
 	return bindActionCreators(
 		{
 			addFavorite,
@@ -92,4 +92,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Artwork);
+)(ArtworkModal);

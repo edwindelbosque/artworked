@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container should match Container snapshot 1`] = `
+<Fragment>
+  <article
+    className="Container"
+  >
+    <Connect(ArtworkResult)
+      isLoaded={false}
+      key="0"
+    />
+    <Connect(ArtworkResult)
+      isLoaded={false}
+      key="1"
+    />
+    <Connect(ArtworkResult)
+      isLoaded={false}
+      key="2"
+    />
+  </article>
+</Fragment>
+`;

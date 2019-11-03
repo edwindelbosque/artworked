@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm should match SearchForm snapshot 1`] = `
+<form
+  className="SearchForm"
+  onSubmit={[Function]}
+>
+  <div
+    className="inputsSection"
+  >
+    <select
+      name="type"
+      onChange={[Function]}
+    >
+      <option
+        value="[\\"album\\", \\"Album\\"]"
+      >
+        Album
+      </option>
+      <option
+        value="[\\"album\\", \\"Single\\"]"
+      >
+        Single
+      </option>
+      <option
+        value="[\\"album\\", \\"Artist\\"]"
+      >
+        Artist
+      </option>
+      <option
+        value="[\\"tvSeason\\", \\"TV Show\\"]"
+      >
+        TV Show
+      </option>
+      <option
+        value="[\\"movie\\", \\"Movie\\"]"
+      >
+        Movie
+      </option>
+      <option
+        value="[\\"podcast\\", \\"Podcast\\"]"
+      >
+        Podcast
+      </option>
+      <option
+        value="[\\"ebook\\", \\"iBook\\"]"
+      >
+        iBook
+      </option>
+      <option
+        value="[\\"audiobook\\", \\"Audiobook\\"]"
+      >
+        Audiobook
+      </option>
+      <option
+        value="[\\"software\\", \\"App\\"]"
+      >
+        App
+      </option>
+    </select>
+    <input
+      name="term"
+      onChange={[Function]}
+      placeholder="Enter Album"
+      type="text"
+      value=""
+    />
+    <div>
+      <input
+        name="artist"
+        onChange={[Function]}
+        placeholder="Enter Artist (Optional)"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    FIND ARTWORK
+  </button>
+</form>
+`;

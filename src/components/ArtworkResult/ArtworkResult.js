@@ -4,7 +4,7 @@ import loadingGif from '../../assets/loadingGif.gif';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-class Artwork extends Component {
+export class ArtworkResult extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -39,8 +39,8 @@ class Artwork extends Component {
 	}
 }
 
-const mapStateToProps = ({ isFavorites }) => ({
+export const mapStateToProps = ({ isFavorites }) => ({
 	isFavorites
 });
 
-export default connect(mapStateToProps)(Artwork);
+export default connect(mapStateToProps)(ArtworkResult);

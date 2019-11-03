@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match Nav snapshot 1`] = `
+<nav
+  className="Nav"
+>
+  <Route
+    exact={true}
+    path="/(|favorites)"
+  >
+    <div
+      className="container"
+    >
+      <h3>
+        My List
+      </h3>
+      <div
+        className="slider-track "
+      >
+        <Link
+          to="favorites"
+        >
+          <div
+            className="slider"
+            onClick={[Function]}
+          />
+        </Link>
+      </div>
+    </div>
+  </Route>
+  <h2>
+    Artworked
+  </h2>
+  <div />
+</nav>
+`;

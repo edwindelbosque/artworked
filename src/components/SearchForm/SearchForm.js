@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { setResults, toggleLoading } from '../../actions';
 import { bindActionCreators } from 'redux';
 
-class SearchForm extends Component {
+export class SearchForm extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -99,7 +99,7 @@ class SearchForm extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
 	return bindActionCreators({ setResults, toggleLoading }, dispatch);
 };
 
