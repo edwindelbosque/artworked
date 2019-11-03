@@ -3,7 +3,7 @@ import './App.scss';
 import SearchForm from '../SearchForm/SearchForm';
 import Container from '../Container/Container';
 import ArtworkModal from '../ArtworkModal/ArtworkModal';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
 
@@ -25,6 +25,7 @@ class App extends Component {
 						return <ArtworkModal result={result} match={match.params} />;
 					}}
 				/>
+				<Route render={() => <Redirect to={{ pathname: '/' }} />} />
 			</main>
 		);
 	}
