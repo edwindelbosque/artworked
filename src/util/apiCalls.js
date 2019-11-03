@@ -16,6 +16,7 @@ export const getAlbumTracks = async collectionId => {
 	try {
 		const response = await fetch(`${baseLookupUrl}${collectionId}&entity=song`);
 		const albumTracks = await response.json();
+		console.log(albumTracks);
 		return albumTracks;
 	} catch (error) {
 		console.log(error.message);
