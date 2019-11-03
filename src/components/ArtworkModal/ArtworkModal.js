@@ -7,7 +7,13 @@ import { bindActionCreators } from 'redux';
 import { addFavorite, removeFavorite } from '../../actions/index';
 import { getAlbumTracks } from '../../util/apiCalls';
 
-const Artwork = ({ result, favorites, addFavorite, removeFavorite }) => {
+const Artwork = ({
+	result,
+	favorites,
+	addFavorite,
+	removeFavorite,
+	isFavorites
+}) => {
 	const { name, artist, releaseYear, hqArtwork, id } = result;
 
 	const getSongs = async () => {
@@ -25,9 +31,11 @@ const Artwork = ({ result, favorites, addFavorite, removeFavorite }) => {
 		? 'is-active'
 		: '';
 
+	const routeHandler = isFavorites ? 'favorites' : '';
+
 	return (
 		<>
-			<Link to='/'>
+			<Link to={`/${routeHandler}`}>
 				<div className='modal-backdrop'></div>
 			</Link>
 			<Nav />
@@ -53,8 +61,9 @@ const Artwork = ({ result, favorites, addFavorite, removeFavorite }) => {
 	);
 };
 
-const mapStateToProps = ({ favorites }) => ({
-	favorites
+const mapStateToProps = ({ favorites, isFavorites }) => ({
+	favorites,
+	isFavorites
 });
 
 const mapDispatchToProps = dispatch => {

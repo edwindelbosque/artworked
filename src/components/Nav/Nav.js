@@ -3,6 +3,7 @@ import './Nav.scss';
 import { connect } from 'react-redux';
 import { toggleFavorites } from '../../actions/index';
 import { bindActionCreators } from 'redux';
+import { Link, Route } from 'react-router-dom';
 
 const Nav = ({ isFavorites, toggleFavorites }) => {
 	const handleClick = () => {
@@ -13,12 +14,16 @@ const Nav = ({ isFavorites, toggleFavorites }) => {
 
 	return (
 		<nav className='Nav'>
-			<div className='container'>
-				<h3>My List</h3>
-				<div className={`slider-track ${toggleStyling}`}>
-					<div className='slider' onClick={() => handleClick()}></div>
+			<Route exact path='/(|favorites)'>
+				<div className='container'>
+					<h3>My List</h3>
+					<div className={`slider-track ${toggleStyling}`}>
+						<Link to={isFavorites ? '/' : 'favorites'}>
+							<div className='slider' onClick={() => handleClick()}></div>
+						</Link>
+					</div>
 				</div>
-			</div>
+			</Route>
 			<h2>Artworked</h2>
 			<div></div>
 		</nav>

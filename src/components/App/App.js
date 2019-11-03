@@ -13,14 +13,15 @@ class App extends Component {
 		return (
 			<main className='App'>
 				<Nav />
-				<Route path='(|search/:id)' render={() => <SearchForm />} />
+				<Route exact path='(|search/:id)' render={() => <SearchForm />} />
 				<Route path='(|search/:id)' render={() => <Container />} />
 				<Route
-					path='/search/:id'
+					path='/(search|favorites)/:id'
 					render={({ match }) => {
+						console.log(match);
 						const id = parseInt(match.params.id);
 						const result = results.find(result => result.id === id);
-						return <ArtworkModal result={result} />;
+						return <ArtworkModal result={result} match={match.params} />;
 					}}
 				/>
 			</main>
