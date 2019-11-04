@@ -1,6 +1,10 @@
 import React from 'react';
-import { SearchForm } from './SearchForm';
+import { SearchForm, mapDispatchToProps } from './SearchForm';
 import { shallow } from 'enzyme';
+import { getData } from '../../util/apiCalls';
+import { setResults, toggleLoading } from '../../actions';
+
+jest.mock('../../util/apiCalls');
 
 describe('SearchForm', () => {
 	let wrapper;
@@ -93,5 +97,56 @@ describe('SearchForm', () => {
 		});
 		wrapper.instance().resetState();
 		expect(wrapper.state()).toEqual(expected);
+	});
+
+	it('should call GetData fetch when handleClick is called', () => {
+		const mockTerm = 'Pop 2';
+		const mockType = 'artist';
+		wrapper.find('input').simulate('change', mockEventAlbum);
+		wrapper.instance().handleClick();
+		expect(getData).toHaveBeenCalledWith(mockTerm, mockType);
+	});
+
+	// it('should call resetState when handleClick is called', () => {
+	// 	wrapper.instance().handleClick = jest.fn();
+	// 	wrapper
+	// 		.find('input')
+	// 		.at(0)
+	// 		.simulate('change', mockEventAlbum);
+	// 	wrapper.find('button').simulate('click');
+	// 	wrapper.instance().resetState = jest.fn();
+	// 	expect(wrapper.instance().resetState).toHaveBeenCalled();
+	// });
+
+	describe('mapDispatchToProps', () => {
+		const results = [{}, {}, {}];
+		const mockDispatch = jest.fn();
+
+		it('should call dispatch with a setResults action when handleClick is called', () => {
+			const actionToDispatch = setResults(results);
+
+			const mappedProps = mapDispatchToProps(mockDispatch);
+			mappedProps.setResults(results);
+
+			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+		});
+
+		it('should call dispatch with a toggleLoading true action when handleClick is called', () => {
+			const actionToDispatch = toggleLoading(true);
+
+			const mappedProps = mapDispatchToProps(mockDispatch);
+			mappedProps.toggleLoading(true);
+
+			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+		});
+
+		it('should call dispatch with a toggleLoading false action when handleClick is called', () => {
+			const actionToDispatch = toggleLoading(false);
+
+			const mappedProps = mapDispatchToProps(mockDispatch);
+			mappedProps.toggleLoading(false);
+
+			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+		});
 	});
 });
