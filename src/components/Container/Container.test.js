@@ -8,7 +8,7 @@ describe('Container', () => {
 	let results;
 
 	beforeEach(() => {
-		results = [{}, {}, {}];
+		results = [{ id: 12 }, { id: 13 }, { id: 15 }];
 		favorites = [{}, {}];
 		wrapper = shallow(<Container favorites={favorites} results={results} />);
 	});

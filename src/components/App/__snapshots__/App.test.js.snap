@@ -18,8 +18,5 @@ exports[`App should match App snapshot 1`] = `
     path="/(search|favorites)/:id"
     render={[Function]}
   />
-  <Route
-    render={[Function]}
-  />
 </main>
 `;

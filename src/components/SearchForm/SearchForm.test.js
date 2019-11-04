@@ -107,17 +107,6 @@ describe('SearchForm', () => {
 		expect(getData).toHaveBeenCalledWith(mockTerm, mockType);
 	});
 
-	// it('should call resetState when handleClick is called', () => {
-	// 	wrapper.instance().handleClick = jest.fn();
-	// 	wrapper
-	// 		.find('input')
-	// 		.at(0)
-	// 		.simulate('change', mockEventAlbum);
-	// 	wrapper.find('button').simulate('click');
-	// 	wrapper.instance().resetState = jest.fn();
-	// 	expect(wrapper.instance().resetState).toHaveBeenCalled();
-	// });
-
 	describe('mapDispatchToProps', () => {
 		const results = [{}, {}, {}];
 		const mockDispatch = jest.fn();

@@ -6,12 +6,12 @@
 		width: 300px;
 		border-radius: 4px;
 		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.356);
-		border: 2px solid rgba(255, 255, 255, 0);
-		transition: 0.15s;
+		border: 1px solid rgba(255, 255, 255, 0);
+		transition: 0.1s;
 
 		&:hover {
-			border: 2px solid white;
-			transition: 0.15s;
+			border: 1px solid white;
+			transition: 0.1s;
 		}
 	}
 

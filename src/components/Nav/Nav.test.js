@@ -34,20 +34,20 @@ describe('Nav', () => {
 
 			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
 		});
+	});
 
-		describe('mockStateToProps', () => {
-			it('should return a boolean', () => {
-				const mockState = {
-					isFavorites: false
-				};
-				const expected = {
-					isFavorites: false
-				};
+	describe('mockStateToProps', () => {
+		it('should return a boolean', () => {
+			const mockState = {
+				isFavorites: false
+			};
+			const expected = {
+				isFavorites: false
+			};
 
-				const mappedProps = mapStateToProps(mockState);
+			const mappedProps = mapStateToProps(mockState);
 
-				expect(mappedProps).toEqual(expected);
-			});
+			expect(mappedProps).toEqual(expected);
 		});
 	});
 });

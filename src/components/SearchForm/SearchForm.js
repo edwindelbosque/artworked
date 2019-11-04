@@ -36,11 +36,15 @@ export class SearchForm extends Component {
 		const { term, type, label, artist } = this.state;
 		const { setResults, toggleLoading } = this.props;
 		const data = await getData(term, type);
-		setResults([]);
-		toggleLoading(true);
-		const cleanData = cleanerHandler(data, label, artist, term);
-		setResults(cleanData);
-		toggleLoading(false);
+		try {
+			setResults([]);
+			toggleLoading(true);
+			const cleanData = cleanerHandler(data, label, artist, term);
+			setResults(cleanData);
+			toggleLoading(false);
+		} catch (error) {
+			setResults([]);
+		}
 		this.resetState();
 	};
 
