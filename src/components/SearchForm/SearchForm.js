@@ -10,7 +10,7 @@ export class SearchForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-			type: 'artist',
+			type: 'album',
 			term: '',
 			artist: '',
 			label: 'Artist'

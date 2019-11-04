@@ -15,7 +15,7 @@ describe('favorites', () => {
 			item: payLoad
 		};
 
-		const result = [...initialState, payLoad];
+		const result = [payLoad, ...initialState];
 
 		expect(favorites(initialState, action)).toEqual(result);
 	});

@@ -89,7 +89,7 @@ describe('SearchForm', () => {
 	});
 
 	it('should reset state when clearInputs is called', () => {
-		const expected = { term: '', artist: '', label: 'Artist', type: 'artist' };
+		const expected = { term: '', artist: '', label: 'Artist', type: 'album' };
 
 		wrapper.instance().setState({
 			term: 'Pop 2',
@@ -101,7 +101,7 @@ describe('SearchForm', () => {
 
 	it('should call GetData fetch when handleClick is called', () => {
 		const mockTerm = 'Pop 2';
-		const mockType = 'artist';
+		const mockType = 'album';
 		wrapper.find('input').simulate('change', mockEventAlbum);
 		wrapper.instance().handleClick();
 		expect(getData).toHaveBeenCalledWith(mockTerm, mockType);
