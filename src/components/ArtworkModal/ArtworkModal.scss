@@ -11,8 +11,8 @@
 	margin-top: 20px;
 	border-radius: 4px;
 	min-width: 20rem;
-	max-width: 60rem;
-	height: 578px;
+	max-width: 65rem;
+	height: 620px;
 	border: 1px solid gray;
 }
 
@@ -33,7 +33,7 @@
 
 .ArtworkModal {
 	img {
-		height: 576px;
+		height: 617px;
 		border-radius: 4px 0 0 4px;
 		box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.384);
 	}
@@ -41,15 +41,15 @@
 	div {
 		margin-left: 20px;
 		margin-right: 20px;
-		width: 350px;
+		width: 400px;
 		display: flex;
 		flex-direction: column;
 
 		.heart {
 			width: 100px;
 			position: absolute;
-			right: -30px;
-			top: 490px;
+			right: -20px;
+			top: -5px;
 			height: 100px;
 			background: url('https://cssanimation.rocks/images/posts/steps/heart.png')
 				no-repeat;
@@ -128,15 +128,31 @@ a {
 }
 
 ul {
-	margin-top: 20px;
-	background: rgb(32, 32, 32);
+	margin-top: 28px;
 	border-radius: 4px;
-	padding: 10px 15px;
+	display: flex;
+	overflow: hidden;
+	height: 100%;
+	overflow-y: scroll;
+	background: rgb(71, 71, 71);
+	padding: 10px;
+	flex-direction: column;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-bottom: 25px;
 }
 
 li {
-	padding: 2px;
+	margin: 4px 0;
+	padding: 6px 15px;
+	background: rgb(105, 105, 105);
+	border-radius: 4px;
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 16px;
 	list-style-type: none;
+	cursor: pointer;
+
+	&:hover {
+		background: rgb(91, 90, 138);
+	}
 }

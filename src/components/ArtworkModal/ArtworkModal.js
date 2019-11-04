@@ -15,25 +15,25 @@ export class ArtworkModal extends Component {
 		this.state = {
 			change: false,
 			isFavorite: true,
-			loaded: false,
-			tracks: []
+			tracks: [],
+			isLoaded: false
 		};
 	}
 
 	componentDidMount = async () => {
 		const { result, favorites } = this.props;
 		const { id } = result;
+		this.setState({
+			isFavorite: favorites.find(favorite => favorite.id === id)
+		});
 		const albumTracks = await getAlbumTracks(id);
 		try {
 			const cleanedTracks = cleanTracks(albumTracks);
-			this.setState({ tracks: cleanedTracks, loaded: true });
+			this.setState({ tracks: cleanedTracks, isLoaded: true });
 			console.log(this.state);
 		} catch (error) {
-			console.warning(error);
+			this.setState({ tracks: 'Could not fetch' });
 		}
-		this.setState({
-			isFavorite: favorites.find(favorite => favorite.id === id) ? true : false
-		});
 	};
 
 	componentWillUnmount = () => {
@@ -84,10 +84,10 @@ export class ArtworkModal extends Component {
 							download>
 							<button className='artwork-button'>Get Artwork</button>
 						</a>
-						<ul>{this.state.loaded && this.mapTracks()}</ul>
 						<div
 							className={`heart ${heartToggle}`}
 							onClick={this.handleToggle}></div>
+						<ul>{this.state.isLoaded && this.mapTracks()}</ul>
 					</div>
 				</article>
 			</>
