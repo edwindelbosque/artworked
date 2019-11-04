@@ -22,7 +22,7 @@ exports[`Nav should match Nav snapshot 1`] = `
         >
           <div
             className="slider"
-            onClick={[Function]}
+            onClick={[MockFunction]}
           />
         </Link>
       </div>
