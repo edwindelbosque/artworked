@@ -37,7 +37,7 @@ export const cleanerHandler = (data, label, artist, term) => {
 	}
 };
 
-const filterArtist = (artist, data) => {
+export const filterArtist = (artist, data) => {
 	return data.filter(result => {
 		const flattedTerm = artist
 			.toUpperCase()
@@ -53,7 +53,7 @@ const filterArtist = (artist, data) => {
 	});
 };
 
-const cleanArtwork = (artworkUrl, resolution) => {
+export const cleanArtwork = (artworkUrl, resolution) => {
 	const splitUrl = artworkUrl.split('');
 	splitUrl.splice(splitUrl.length - 13);
 	const joinUrl = splitUrl.join('');
@@ -135,7 +135,7 @@ export const cleanArtist = mutableData => {
 	});
 };
 
-const cleanMovie = mutableData => {
+export const cleanMovie = mutableData => {
 	return mutableData.map(result => {
 		const { artworkUrl100, trackName, releaseDate, trackId } = result;
 
@@ -149,7 +149,7 @@ const cleanMovie = mutableData => {
 	});
 };
 
-const cleanPodcast = mutableData => {
+export const cleanPodcast = mutableData => {
 	return mutableData.map(result => {
 		const { artworkUrl100, trackName, releaseDate, collectionId } = result;
 
@@ -163,7 +163,7 @@ const cleanPodcast = mutableData => {
 	});
 };
 
-const cleanTvShow = mutableData => {
+export const cleanTvShow = mutableData => {
 	return mutableData.map(result => {
 		const { artworkUrl100, releaseDate, collectionName, collectionId } = result;
 
@@ -177,7 +177,7 @@ const cleanTvShow = mutableData => {
 	});
 };
 
-const cleanBook = mutableData => {
+export const cleanBook = mutableData => {
 	return mutableData.map(result => {
 		const {
 			artworkUrl100,
@@ -198,7 +198,7 @@ const cleanBook = mutableData => {
 	});
 };
 
-const cleanAudiobook = mutableData => {
+export const cleanAudiobook = mutableData => {
 	return mutableData.map(result => {
 		const {
 			artworkUrl100,
