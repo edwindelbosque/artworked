@@ -21,22 +21,11 @@ You can also favorite them and come back later with the help of localStorage.
 3. Run `npm install` to install the webpack dependencies.
 4. Once it has finished installing, run `npm start`.
 
-## Screenshot
+## Screenshots
 
 <img width="1440" src="https://user-images.githubusercontent.com/48811985/68107354-84748600-fedc-11e9-9c2a-b4c3314de7ea.png">
 
 <img width="1440" src="https://user-images.githubusercontent.com/48811985/68107607-47f55a00-fedd-11e9-8fe4-39888eb6dc20.png">
-
-## Learnings
-
-- Made informed design decisions to create a user-friendly application.
-- Became comfortable with different network requests like GET, POST, & DELETE.
-- Got to user PostgresSQL to make network requests to the server.
-- Deployment of a Nodejs database into Heroku.
-- Solidified concepts with React to create clean and re-useable components.
-- Became comfortable with Redux’s lifecycle, creating actions, reducers, and connecting them to React components.
-- Understood and solidified concepts with React components, asynchronous code, and Redux testing.
-- Use of localStorage to make user and user information persist on page load.
 
 ## Built with
 
