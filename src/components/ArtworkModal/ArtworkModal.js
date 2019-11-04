@@ -16,7 +16,8 @@ export class ArtworkModal extends Component {
 			change: false,
 			isFavorite: true,
 			tracks: [],
-			isLoaded: false
+			isLoaded: false,
+			currentlyPlaying: ''
 		};
 	}
 
@@ -57,14 +58,15 @@ export class ArtworkModal extends Component {
 		return this.state.tracks.map((track, index) => {
 			const { name, number, previewUrl } = track;
 			return (
-				<li key={index}>
+				<li key={index} onClick={() => this.handleTrack(previewUrl)}>
 					{`${number}. ${name}`}
-					<audio controls>
-						<source src={previewUrl} type='audio/mpeg' />
-					</audio>
 				</li>
 			);
 		});
+	};
+
+	handleTrack = async trackPreview => {
+		this.setState({ currentlyPlaying: trackPreview });
 	};
 
 	render() {
@@ -97,6 +99,11 @@ export class ArtworkModal extends Component {
 						<ul>{this.state.isLoaded && this.mapTracks()}</ul>
 					</div>
 				</article>
+				{this.state.currentlyPlaying && (
+					<audio controls className='audioPlayer' ref='audio'>
+						<source src={this.state.currentlyPlaying} type='audio/mpeg' />
+					</audio>
+				)}
 			</>
 		);
 	}
