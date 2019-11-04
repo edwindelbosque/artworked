@@ -6,19 +6,31 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addFavorite, removeFavorite } from '../../actions/index';
 import PropTypes from 'prop-types';
+import { getAlbumTracks } from '../../util/apiCalls';
+import { cleanTracks } from '../../util/apiCleaners';
 
 export class ArtworkModal extends Component {
 	constructor() {
 		super();
 		this.state = {
 			change: false,
-			isFavorite: true
+			isFavorite: true,
+			loaded: false,
+			tracks: []
 		};
 	}
 
-	componentDidMount = () => {
+	componentDidMount = async () => {
 		const { result, favorites } = this.props;
 		const { id } = result;
+		const albumTracks = await getAlbumTracks(id);
+		try {
+			const cleanedTracks = cleanTracks(albumTracks);
+			this.setState({ tracks: cleanedTracks, loaded: true });
+			console.log(this.state);
+		} catch (error) {
+			console.warning(error);
+		}
 		this.setState({
 			isFavorite: favorites.find(favorite => favorite.id === id) ? true : false
 		});
@@ -38,6 +50,13 @@ export class ArtworkModal extends Component {
 		this.setState({
 			change: !this.state.change,
 			isFavorite: !this.state.isFavorite
+		});
+	};
+
+	mapTracks = () => {
+		return this.state.tracks.map((track, index) => {
+			const { name, number, previewUrl } = track;
+			return <li key={index}>{`${number}. ${name}`}</li>;
 		});
 	};
 
@@ -65,6 +84,7 @@ export class ArtworkModal extends Component {
 							download>
 							<button className='artwork-button'>Get Artwork</button>
 						</a>
+						<ul>{this.state.loaded && this.mapTracks()}</ul>
 						<div
 							className={`heart ${heartToggle}`}
 							onClick={this.handleToggle}></div>

@@ -218,3 +218,17 @@ export const cleanAudiobook = mutableData => {
 		return cleanedData;
 	});
 };
+
+export const cleanTracks = data => {
+	const mutableData = [...data.results];
+	mutableData.splice(0, 1);
+	const cleanedData = mutableData.map(track => {
+		const { trackName, trackNumber, previewUrl } = track;
+		return {
+			name: trackName,
+			number: trackNumber,
+			previewUrl
+		};
+	});
+	return cleanedData;
+};

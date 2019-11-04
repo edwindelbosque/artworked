@@ -126,3 +126,17 @@
 a {
 	width: 100%;
 }
+
+ul {
+	margin-top: 20px;
+	background: rgb(32, 32, 32);
+	border-radius: 4px;
+	padding: 10px 15px;
+}
+
+li {
+	padding: 2px;
+	font-weight: 600;
+	font-size: 14px;
+	list-style-type: none;
+}
