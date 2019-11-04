@@ -3,7 +3,7 @@ import './App.scss';
 import SearchForm from '../SearchForm/SearchForm';
 import Container from '../Container/Container';
 import ArtworkModal from '../ArtworkModal/ArtworkModal';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
@@ -24,7 +24,6 @@ export const App = ({ results, favorites }) => {
 					return <ArtworkModal result={result} match={match.params} />;
 				}}
 			/>
-			<Route render={() => <Redirect to={{ pathname: '/' }} />} />
 		</main>
 	);
 };
