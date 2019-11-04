@@ -7,30 +7,27 @@ export const cleanerHandler = (data, label, artist, term) => {
 					(a, b) => b.releaseYear - a.releaseYear
 			  )
 			: cleanAlbum(mutableData, term);
-		return filterResults(cleanAlbums, term);
+		return cleanAlbums;
 	}
 	if (label === 'Single') {
 		const cleanSingles = artist
 			? cleanSingle(filterArtist(artist, mutableData))
 			: cleanSingle(mutableData);
-		return filterResults(cleanSingles, term);
+		return cleanSingles;
 	}
 	if (label === 'Artist') {
 		return cleanArtist(mutableData);
 	}
 	if (label === 'Movie') {
 		const cleanMovies = cleanMovie(mutableData);
-		return filterResults(cleanMovies, term);
-	}
-	if (label === 'App') {
-		return cleanApp(mutableData.slice(0, 1));
+		return cleanMovies;
 	}
 	if (label === 'Podcast') {
 		return cleanPodcast(mutableData);
 	}
 	if (label === 'TV Show') {
 		const cleanShows = cleanTvShow(mutableData);
-		return filterResults(cleanShows, term);
+		return cleanShows;
 	}
 	if (label === 'iBook') {
 		return cleanBook(mutableData);
@@ -38,22 +35,6 @@ export const cleanerHandler = (data, label, artist, term) => {
 	if (label === 'Audiobook') {
 		return cleanAudiobook(mutableData);
 	}
-};
-
-const filterResults = (cleanData, term) => {
-	return cleanData.filter(result => {
-		const upperTerm = term
-			.toUpperCase()
-			.replace(/ /g, '')
-			.normalize('NFD')
-			.replace(/[\u0300-\u036f]/g, '');
-		const upperName = result.name
-			.toUpperCase()
-			.replace(/ /g, '')
-			.normalize('NFD')
-			.replace(/[\u0300-\u036f]/g, '');
-		return upperName.includes(upperTerm);
-	});
 };
 
 const filterArtist = (artist, data) => {
@@ -80,7 +61,7 @@ const cleanArtwork = (artworkUrl, resolution) => {
 	return cleanUrl;
 };
 
-const cleanAlbum = mutableData => {
+export const cleanAlbum = mutableData => {
 	const filteredData = mutableData.filter(result => result.trackCount > 5);
 	return filteredData.map(result => {
 		const {
@@ -105,7 +86,7 @@ const cleanAlbum = mutableData => {
 	});
 };
 
-const cleanSingle = mutableData => {
+export const cleanSingle = mutableData => {
 	const filteredData = mutableData.filter(result => result.trackCount <= 5);
 	return filteredData.map(result => {
 		const {
@@ -130,7 +111,7 @@ const cleanSingle = mutableData => {
 	});
 };
 
-const cleanArtist = mutableData => {
+export const cleanArtist = mutableData => {
 	return mutableData.map(result => {
 		const {
 			artistId,
@@ -233,20 +214,6 @@ const cleanAudiobook = mutableData => {
 			name: collectionName,
 			releaseYear: parseInt(releaseDate.slice(0, 4)),
 			id: collectionId
-		};
-		return cleanedData;
-	});
-};
-
-const cleanApp = mutableData => {
-	return mutableData.map(result => {
-		const { artworkUrl100, trackName, releaseDate, trackId } = result;
-
-		const cleanedData = {
-			hqArtwork: cleanArtwork(artworkUrl100, 10000),
-			name: trackName,
-			releaseYear: parseInt(releaseDate.slice(0, 4)),
-			id: trackId
 		};
 		return cleanedData;
 	});

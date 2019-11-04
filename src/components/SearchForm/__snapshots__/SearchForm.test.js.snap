@@ -52,11 +52,6 @@ exports[`SearchForm should match SearchForm snapshot 1`] = `
       >
         Audiobook
       </option>
-      <option
-        value="[\\"software\\", \\"App\\"]"
-      >
-        App
-      </option>
     </select>
     <input
       name="term"
