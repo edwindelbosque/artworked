@@ -1,12 +1,11 @@
 import React from 'react';
-import { Container } from './Container';
+import { Container, mapStateToProps } from './Container';
 import { shallow } from 'enzyme';
 
 describe('Container', () => {
 	let wrapper;
 	let favorites;
 	let results;
-	// const mapCards = jest.fn();
 
 	beforeEach(() => {
 		results = [{}, {}, {}];
@@ -16,5 +15,26 @@ describe('Container', () => {
 
 	it('should match Container snapshot', () => {
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	describe('mockStateToProps', () => {
+		it('should match the props from Redux', () => {
+			const mockState = {
+				results: [{}, {}, {}],
+				isLoading: true,
+				isFavorites: false,
+				favorites: [{}, {}]
+			};
+			const expected = {
+				results: [{}, {}, {}],
+				isLoading: true,
+				isFavorites: false,
+				favorites: [{}, {}]
+			};
+
+			const mappedProps = mapStateToProps(mockState);
+
+			expect(mappedProps).toEqual(expected);
+		});
 	});
 });

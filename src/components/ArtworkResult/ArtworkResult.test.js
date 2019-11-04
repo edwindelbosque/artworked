@@ -4,8 +4,6 @@ import { shallow } from 'enzyme';
 
 describe('ArtworkResult', () => {
 	let wrapper;
-	const result = { information: 'yes' };
-	const match = { params: ['path'] };
 
 	beforeEach(() => {
 		wrapper = shallow(<ArtworkResult />);
@@ -13,5 +11,11 @@ describe('ArtworkResult', () => {
 
 	it('should match App snapshot', () => {
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should change state to true when loadHandler is invoked', () => {
+		const expectedResult = true;
+		wrapper.instance().loadHandler();
+		expect(wrapper.state('isLoaded')).toEqual(expectedResult);
 	});
 });

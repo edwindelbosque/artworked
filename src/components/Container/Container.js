@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
 
 export const Container = ({ results, isLoading, isFavorites, favorites }) => {
 	const mapCards = type => {
-		return type.map((result, index) => {
+		return type.map(result => {
 			const { name, artist, releaseYear, hqArtwork, id } = result;
 			return (
 				<ArtworkResult
-					key={index}
+					key={id}
 					id={id}
 					name={name}
 					artist={artist}
