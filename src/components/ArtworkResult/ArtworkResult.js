@@ -3,6 +3,7 @@ import './ArtworkResult.scss';
 import loadingGif from '../../assets/loadingGif.gif';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class ArtworkResult extends Component {
 	constructor() {
@@ -42,5 +43,9 @@ export class ArtworkResult extends Component {
 export const mapStateToProps = ({ isFavorites }) => ({
 	isFavorites
 });
+
+ArtworkResult.propTypes = {
+	isFavorites: PropTypes.bool
+};
 
 export default connect(mapStateToProps)(ArtworkResult);

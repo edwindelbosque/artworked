@@ -5,6 +5,7 @@ import Container from '../Container/Container';
 import ArtworkModal from '../ArtworkModal/ArtworkModal';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
 
 export const App = ({ results, favorites }) => {
@@ -32,5 +33,10 @@ export const mapStateToProps = ({ results, favorites }) => ({
 	results,
 	favorites
 });
+
+App.propTypes = {
+	results: PropTypes.array,
+	favorites: PropTypes.array
+};
 
 export default connect(mapStateToProps)(App);

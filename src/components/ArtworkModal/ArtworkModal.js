@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addFavorite, removeFavorite } from '../../actions/index';
+import PropTypes from 'prop-types';
 
 export class ArtworkModal extends Component {
 	constructor() {
@@ -87,6 +88,13 @@ export const mapDispatchToProps = dispatch => {
 		},
 		dispatch
 	);
+};
+
+ArtworkModal.propTypes = {
+	favorites: PropTypes.array,
+	isFavorites: PropTypes.bool,
+	addFavorite: PropTypes.func,
+	removeFavorite: PropTypes.func
 };
 
 export default connect(

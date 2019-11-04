@@ -5,6 +5,7 @@ import { cleanerHandler } from '../../util/apiCleaners';
 import { connect } from 'react-redux';
 import { setResults, toggleLoading } from '../../actions';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 export class SearchForm extends Component {
 	constructor() {
@@ -99,6 +100,11 @@ export class SearchForm extends Component {
 
 export const mapDispatchToProps = dispatch => {
 	return bindActionCreators({ setResults, toggleLoading }, dispatch);
+};
+
+SearchForm.propTypes = {
+	setResults: PropTypes.func,
+	toggleLoading: PropTypes.func
 };
 
 export default connect(

@@ -3,6 +3,7 @@ import './Container.scss';
 import ArtworkResult from '../ArtworkResult/ArtworkResult';
 import loadingGif from '../../assets/loadingGif.gif';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export const Container = ({ results, isLoading, isFavorites, favorites }) => {
 	const mapCards = type => {
@@ -53,5 +54,12 @@ export const mapStateToProps = ({
 	isFavorites,
 	favorites
 });
+
+Container.propTypes = {
+	results: PropTypes.array,
+	favorites: PropTypes.array,
+	isLoading: PropTypes.bool,
+	isFavorites: PropTypes.bool
+};
 
 export default connect(mapStateToProps)(Container);

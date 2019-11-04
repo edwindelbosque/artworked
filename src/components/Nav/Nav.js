@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { toggleFavorites } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { Link, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const Nav = ({ isFavorites, toggleFavorites }) => {
 	const toggleStyling = isFavorites ? 'active' : '';
@@ -32,6 +33,11 @@ export const mapStateToProps = ({ isFavorites }) => ({
 
 export const mapDispatchToProps = dispatch => {
 	return bindActionCreators({ toggleFavorites }, dispatch);
+};
+
+Nav.propTypes = {
+	isFavorites: PropTypes.bool,
+	toggleFavorites: PropTypes.func
 };
 
 export default connect(
