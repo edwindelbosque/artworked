@@ -56,7 +56,14 @@ export class ArtworkModal extends Component {
 	mapTracks = () => {
 		return this.state.tracks.map((track, index) => {
 			const { name, number, previewUrl } = track;
-			return <li key={index}>{`${number}. ${name}`}</li>;
+			return (
+				<li key={index}>
+					{`${number}. ${name}`}
+					<audio controls>
+						<source src={previewUrl} type='audio/mpeg' />
+					</audio>
+				</li>
+			);
 		});
 	};
 

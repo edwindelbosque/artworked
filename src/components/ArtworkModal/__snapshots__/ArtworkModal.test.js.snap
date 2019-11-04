@@ -41,6 +41,7 @@ exports[`ArtworkModal should match ArtworkModal snapshot 1`] = `
         className="heart is-active"
         onClick={[Function]}
       />
+      <ul />
     </div>
   </article>
 </Fragment>
