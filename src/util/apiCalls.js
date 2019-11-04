@@ -7,7 +7,6 @@ export const getData = async (search, type) => {
 		const data = await response.json();
 		return data;
 	} catch (error) {
-		console.log(error.message);
 		throw new Error('Failed to get results');
 	}
 };
@@ -16,10 +15,8 @@ export const getAlbumTracks = async collectionId => {
 	try {
 		const response = await fetch(`${baseLookupUrl}${collectionId}&entity=song`);
 		const albumTracks = await response.json();
-		console.log(albumTracks);
 		return albumTracks;
 	} catch (error) {
-		console.log(error.message);
 		throw new Error('Failed to get album tracks');
 	}
 };
