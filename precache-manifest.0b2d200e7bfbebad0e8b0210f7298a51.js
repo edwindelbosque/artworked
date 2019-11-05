@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e0be4059804974268e4b9baf4a37cd69",
+    "revision": "880a72cf52114f5ba25e9dfd38a7690b",
     "url": "/artworked/index.html"
   },
   {
-    "revision": "cc90ff091ffa1b5d3eef",
+    "revision": "e4807060fd215e2714cd",
     "url": "/artworked/static/css/main.959c6db6.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/artworked/static/js/2.d16bd9c7.chunk.js"
   },
   {
-    "revision": "cc90ff091ffa1b5d3eef",
-    "url": "/artworked/static/js/main.9188bb7e.chunk.js"
+    "revision": "e4807060fd215e2714cd",
+    "url": "/artworked/static/js/main.c9b2450c.chunk.js"
   },
   {
     "revision": "86ad613f213c93952b1c",
