@@ -4,7 +4,7 @@
 
 ## Summary
 
-Look for any film and tv posters, album covers, podcasts, and more content at their original, untouched quality. 
+Look for any film and tv posters, album covers, podcasts, and more content at their original, untouched quality and get to play music previous like a mini-Spotify. 
 You can also favorite them and come back later with the help of localStorage.
 
 ## Check out my live app [here](https://edwindelbosque.github.io/artworked)!
@@ -23,7 +23,7 @@ You can also favorite them and come back later with the help of localStorage.
 
 ## Screenshots
 
-<img width="1440" src="https://user-images.githubusercontent.com/48811985/68107354-84748600-fedc-11e9-9c2a-b4c3314de7ea.png">
+<img width="1440" src="https://user-images.githubusercontent.com/48811985/68172878-0c0bd480-ff71-11e9-8f74-504dbce5e952.png">
 
 <img width="1440" src="https://user-images.githubusercontent.com/48811985/68107607-47f55a00-fedd-11e9-8fe4-39888eb6dc20.png">
 
