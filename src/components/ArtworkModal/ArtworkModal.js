@@ -58,7 +58,8 @@ export class ArtworkModal extends Component {
 			const { name, number, previewUrl } = track;
 			return (
 				<li key={index} onClick={() => this.handleTrack(previewUrl)}>
-					{`${number}. ${name}`}
+					<span className='trackNumber'>{number}. </span>
+					{name}
 				</li>
 			);
 		});
