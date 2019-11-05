@@ -43,11 +43,6 @@ exports[`SearchForm should match SearchForm snapshot 1`] = `
         Podcast
       </option>
       <option
-        value="[\\"ebook\\", \\"iBook\\"]"
-      >
-        iBook
-      </option>
-      <option
         value="[\\"audiobook\\", \\"Audiobook\\"]"
       >
         Audiobook

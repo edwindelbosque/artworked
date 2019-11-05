@@ -84,7 +84,6 @@ export class SearchForm extends Component {
 						<option value='["tvSeason", "TV Show"]'>TV Show</option>
 						<option value='["movie", "Movie"]'>Movie</option>
 						<option value='["podcast", "Podcast"]'>Podcast</option>
-						<option value='["ebook", "iBook"]'>iBook</option>
 						<option value='["audiobook", "Audiobook"]'>Audiobook</option>
 					</select>
 					<input
