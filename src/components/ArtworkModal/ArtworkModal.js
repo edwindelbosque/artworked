@@ -4,10 +4,11 @@ import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addFavorite, removeFavorite } from '../../actions/index';
+import { addFavorite, removeFavorite, setTrack } from '../../actions/index';
 import PropTypes from 'prop-types';
 import { getAlbumTracks } from '../../util/apiCalls';
 import { cleanTracks } from '../../util/apiCleaners';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 export class ArtworkModal extends Component {
 	constructor() {
@@ -17,7 +18,7 @@ export class ArtworkModal extends Component {
 			isFavorite: true,
 			tracks: [],
 			isLoaded: false,
-			currentlyPlaying: ''
+			reloadPlayer: false
 		};
 	}
 
@@ -49,8 +50,13 @@ export class ArtworkModal extends Component {
 	handleToggle = () => {
 		this.setState({
 			change: !this.state.change,
-			isFavorite: !this.state.isFavorite
+			isFavorite: !this.state.isFavorite,
+			reloadPlayer: true
 		});
+
+		setTimeout(() => {
+			this.setState({ reloadPlayer: false });
+		}, 500);
 	};
 
 	mapTracks = () => {
@@ -66,7 +72,7 @@ export class ArtworkModal extends Component {
 	};
 
 	handleTrack = async trackPreview => {
-		this.setState({ currentlyPlaying: trackPreview });
+		this.props.setTrack(trackPreview);
 	};
 
 	render() {
@@ -99,26 +105,24 @@ export class ArtworkModal extends Component {
 						<ul>{this.state.isLoaded && this.mapTracks()}</ul>
 					</div>
 				</article>
-				{this.state.currentlyPlaying && (
-					<audio controls className='audioPlayer' ref='audio'>
-						<source src={this.state.currentlyPlaying} type='audio/mpeg' />
-					</audio>
-				)}
+				{this.props.currentTrack && !this.state.reloadPlayer && <AudioPlayer />}
 			</>
 		);
 	}
 }
 
-export const mapStateToProps = ({ favorites, isFavorites }) => ({
+export const mapStateToProps = ({ favorites, isFavorites, currentTrack }) => ({
 	favorites,
-	isFavorites
+	isFavorites,
+	currentTrack
 });
 
 export const mapDispatchToProps = dispatch => {
 	return bindActionCreators(
 		{
 			addFavorite,
-			removeFavorite
+			removeFavorite,
+			setTrack
 		},
 		dispatch
 	);

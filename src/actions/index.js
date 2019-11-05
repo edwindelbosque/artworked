@@ -21,3 +21,8 @@ export const removeFavorite = id => ({
 export const toggleFavorites = () => ({
 	type: 'TOGGLE_FAVORITES'
 });
+
+export const setTrack = previewUrl => ({
+	type: 'SET_TRACK',
+	previewUrl
+});

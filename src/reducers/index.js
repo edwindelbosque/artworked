@@ -3,12 +3,14 @@ import { isLoading } from './isLoading';
 import { results } from './results';
 import { favorites } from './favorites';
 import { isFavorites } from './isFavorites';
+import { currentTrack } from './currentTrack';
 
 const RootReducer = combineReducers({
 	results,
 	isLoading,
 	favorites,
-	isFavorites
+	isFavorites,
+	currentTrack
 });
 
 export default RootReducer;

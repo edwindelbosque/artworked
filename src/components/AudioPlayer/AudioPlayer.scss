@@ -1,0 +1,17 @@
+.audioPlayer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	height: 30px;
+	width: 100%;
+	background: #5f5f5f;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.audioPlayer::-webkit-media-controls-panel {
+	background-color: #5f5f5f;
+}

@@ -35,8 +35,8 @@ export class SearchForm extends Component {
 	handleClick = async () => {
 		const { term, type, label, artist } = this.state;
 		const { setResults, toggleLoading } = this.props;
-		const data = await getData(term, type);
 		try {
+			const data = await getData(term, type);
 			setResults([]);
 			toggleLoading(true);
 			const cleanData = cleanerHandler(data, label, artist, term);
