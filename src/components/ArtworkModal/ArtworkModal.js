@@ -31,7 +31,6 @@ export class ArtworkModal extends Component {
 		try {
 			const cleanedTracks = cleanTracks(albumTracks);
 			this.setState({ tracks: cleanedTracks, isLoaded: true });
-			console.log(this.state);
 		} catch (error) {
 			this.setState({ tracks: 'Could not fetch' });
 		}

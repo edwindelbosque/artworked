@@ -17,7 +17,6 @@ export const App = ({ results, favorites }) => {
 			<Route
 				path='/(search|favorites)/:id'
 				render={({ match }) => {
-					console.log(match);
 					const id = parseInt(match.params.id);
 					const data = [...results, ...favorites];
 					const result = data.find(result => result.id === id);
