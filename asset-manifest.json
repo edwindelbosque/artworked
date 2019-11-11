@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/artworked/static/css/main.0819535c.chunk.css",
+    "main.css": "/artworked/static/css/main.55154895.chunk.css",
     "main.js": "/artworked/static/js/main.34264007.chunk.js",
     "main.js.map": "/artworked/static/js/main.34264007.chunk.js.map",
     "runtime-main.js": "/artworked/static/js/runtime-main.d9ecc51c.js",
@@ -8,15 +8,15 @@
     "static/js/2.2a5ad388.chunk.js": "/artworked/static/js/2.2a5ad388.chunk.js",
     "static/js/2.2a5ad388.chunk.js.map": "/artworked/static/js/2.2a5ad388.chunk.js.map",
     "index.html": "/artworked/index.html",
-    "precache-manifest.2486ac2e8551dd9495036ba9fd364820.js": "/artworked/precache-manifest.2486ac2e8551dd9495036ba9fd364820.js",
+    "precache-manifest.2c9965354a01dd93e1ab88a8415050e8.js": "/artworked/precache-manifest.2c9965354a01dd93e1ab88a8415050e8.js",
     "service-worker.js": "/artworked/service-worker.js",
-    "static/css/main.0819535c.chunk.css.map": "/artworked/static/css/main.0819535c.chunk.css.map",
+    "static/css/main.55154895.chunk.css.map": "/artworked/static/css/main.55154895.chunk.css.map",
     "static/media/loadingGif.gif": "/artworked/static/media/loadingGif.95cf96ca.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.d9ecc51c.js",
     "static/js/2.2a5ad388.chunk.js",
-    "static/css/main.0819535c.chunk.css",
+    "static/css/main.55154895.chunk.css",
     "static/js/main.34264007.chunk.js"
   ]
 }
