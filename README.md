@@ -1,6 +1,6 @@
 <img width="884" src="https://user-images.githubusercontent.com/48811985/68107690-9145a980-fedd-11e9-904a-664203a5f51e.png">
 
-# Artworked: A Global iTunes Artwork Finder web app
+# Artworked: A Global iTunes Artwork Finder and Preview Player web app 
 
 ## Summary
 
